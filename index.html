@@ -722,55 +722,56 @@
     .zz-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
     .zz-card p { color: var(--gray); line-height: 1.75; max-width: 420px; }
 
-    /* Moving checklist */
+    /* Moving checklist: road to your new home */
     #tips { background: var(--white); }
-    .ck-wrap { display: grid; grid-template-columns: 4fr 7fr; gap: 28px; align-items: start; }
-    .ck-side {
-      position: sticky; top: 110px; display: flex; flex-direction: column; gap: 14px;
-      background: var(--dark); color: var(--white); border-radius: 26px; padding: 40px 34px;
+    .ck-road { position: relative; max-width: 920px; margin: 0 auto 36px; padding-top: 50px; }
+    .ck-track {
+      position: absolute; left: 12.5%; right: 12.5%; top: 77px; height: 6px; border-radius: 3px;
+      background: repeating-linear-gradient(90deg, rgba(0,0,0,.2) 0 14px, transparent 14px 26px);
     }
-    .ck-side .section-title { color: var(--white); font-size: clamp(1.9rem, 3vw, 2.5rem); }
-    .ck-side .section-sub { color: rgba(255,255,255,.62); font-size: .95rem; margin-top: 0; }
-    .ck-ring { position: relative; width: 168px; height: 168px; margin: 14px 0 6px; }
-    .ck-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-    .ck-ring circle { fill: none; stroke-width: 9; }
-    .ck-ring .track { stroke: rgba(255,255,255,.12); }
-    .ck-ring .bar { stroke: var(--orange); stroke-linecap: round; stroke-dasharray: 326.73; stroke-dashoffset: 326.73; transition: stroke-dashoffset .5s var(--ease); }
-    .ck-ring-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .ck-ring-text strong { font-size: 2.6rem; line-height: 1; letter-spacing: -.02em; }
-    .ck-ring-text span { font-size: .78rem; color: rgba(255,255,255,.6); margin-top: 6px; }
-    .ck-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
-    .ck-reset { background: none; border: none; color: rgba(255,255,255,.6); font: inherit; font-size: .9rem; cursor: pointer; text-decoration: underline; padding: 6px; }
-    .ck-reset:hover { color: var(--white); }
-
-    .ck-main { background: var(--light); border-radius: 26px; padding: 22px; }
-    .ck-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 18px; }
-    .ck-tab {
-      display: flex; flex-direction: column; gap: 2px; text-align: left; cursor: pointer;
-      background: var(--white); border: 1px solid rgba(0,0,0,.07); border-radius: 16px; padding: 14px 14px 12px;
-      font-family: var(--font); color: var(--dark); transition: background .2s, color .2s, border-color .2s;
+    .ck-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--orange); border-radius: 3px; transition: width .7s var(--ease); }
+    .ck-truck { position: absolute; z-index: 2; left: 0; bottom: 40px; width: 84px; height: auto; transform: translateX(-50%); transition: left .7s var(--ease); filter: drop-shadow(0 4px 6px rgba(0,0,0,.18)); }
+    .ck-stops { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .ck-stop { background: none; border: none; cursor: pointer; font-family: var(--font); color: var(--dark); display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0 4px; }
+    .ck-stop .dot {
+      position: relative; z-index: 1; width: 56px; height: 56px; border-radius: 50%; background: var(--white);
+      border: 3px solid rgba(0,0,0,.16); display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1.15rem; transition: background .25s, border-color .25s, color .25s, box-shadow .25s;
     }
-    .ck-tab:hover { border-color: rgba(242,101,34,.5); }
-    .ck-step { font-size: .68rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
-    .ck-name { font-size: .95rem; font-weight: 700; }
-    .ck-count { font-size: .78rem; font-weight: 600; color: var(--orange); margin-top: 4px; }
-    .ck-tab.active { background: var(--orange); border-color: var(--orange); color: #fff; }
-    .ck-tab.active .ck-step, .ck-tab.active .ck-count { color: rgba(255,255,255,.9); }
-    .ck-tab.done .ck-count::after { content: ' ✓'; }
+    .ck-stop .tick { display: none; width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .ck-stop:hover .dot { border-color: var(--orange); }
+    .ck-stop.active .dot { border-color: var(--orange); color: var(--orange); box-shadow: 0 0 0 7px rgba(242,101,34,.16); }
+    .ck-stop.done .dot { background: var(--orange); border-color: var(--orange); }
+    .ck-stop.done .num { display: none; }
+    .ck-stop.done .tick { display: block; }
+    .ck-stop .nm { font-size: .98rem; font-weight: 700; margin-top: 4px; }
+    .ck-stop .ct { font-size: .8rem; font-weight: 600; color: var(--gray); }
+    .ck-stop.active .nm { color: var(--orange); }
 
+    .ck-card {
+      display: grid; grid-template-columns: 5fr 7fr; max-width: 1100px; margin: 0 auto;
+      background: var(--light); border-radius: 28px; overflow: hidden; box-shadow: 0 26px 64px rgba(0,0,0,.09);
+    }
+    .ck-photo { position: relative; min-height: 440px; background: #111; }
+    .ck-photo img { position: absolute; inset: 0; opacity: 0; transition: opacity .5s; }
+    .ck-photo img.on { opacity: 1; }
+    .ck-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,.88) 5%, rgba(13,13,13,.1) 65%); }
+    .ck-cap { position: absolute; z-index: 2; left: 28px; right: 28px; bottom: 28px; color: #fff; }
+    .ck-when { font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #ff9d6c; }
+    .ck-cap h3 { font-size: 2rem; line-height: 1.1; margin: 8px 0; letter-spacing: -.01em; }
+    .ck-cap p { font-size: .95rem; color: rgba(255,255,255,.82); }
+    .ck-chip { display: inline-block; margin-top: 14px; background: rgba(255,255,255,.18); backdrop-filter: blur(6px); padding: 7px 16px; border-radius: 100px; font-size: .82rem; font-weight: 600; }
+
+    .ck-body { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; }
     .ck-item {
-      position: relative;
-      display: flex; align-items: center; gap: 16px; cursor: pointer;
+      position: relative; display: flex; align-items: center; gap: 16px; cursor: pointer;
       background: var(--white); border-radius: 14px; padding: 16px 18px; margin-bottom: 10px;
-      border: 1px solid transparent; transition: border-color .2s, transform .2s;
+      border: 1px solid transparent; transition: border-color .2s;
     }
     .ck-item:last-child { margin-bottom: 0; }
     .ck-item:hover { border-color: rgba(242,101,34,.4); }
     .ck-item input { position: absolute; opacity: 0; pointer-events: none; }
-    .ck-item .box {
-      position: relative; flex: 0 0 26px; height: 26px; border-radius: 8px; border: 2px solid rgba(0,0,0,.25);
-      transition: background .2s, border-color .2s;
-    }
+    .ck-item .box { position: relative; flex: 0 0 26px; height: 26px; border-radius: 8px; border: 2px solid rgba(0,0,0,.25); transition: background .2s, border-color .2s; }
     .ck-item .box::after {
       content: ''; position: absolute; left: 7px; top: 2px; width: 7px; height: 13px;
       border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg) scale(0); transition: transform .2s;
@@ -780,6 +781,17 @@
     .ck-item input:focus-visible + .box { outline: 2px solid var(--orange); outline-offset: 3px; }
     .ck-item .txt { font-size: .98rem; line-height: 1.5; transition: color .2s; }
     .ck-item input:checked ~ .txt { color: var(--gray); text-decoration: line-through; text-decoration-color: rgba(0,0,0,.3); }
+
+    .ck-foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid rgba(0,0,0,.1); }
+    .ck-total { flex: 1 1 200px; }
+    .ck-total-bar { height: 8px; border-radius: 4px; background: rgba(0,0,0,.1); overflow: hidden; }
+    .ck-total-bar span { display: block; height: 100%; width: 0; background: var(--orange); border-radius: 4px; transition: width .6s var(--ease); }
+    .ck-total small { display: block; margin-top: 8px; font-size: .82rem; color: var(--gray); }
+    .ck-next { border: none; cursor: pointer; font-family: var(--font); }
+    .ck-next[hidden] { display: none; }
+    .ck-links { max-width: 1100px; margin: 22px auto 0; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: .92rem; }
+    .ck-links a { color: var(--orange); font-weight: 600; }
+    .ck-links button { background: none; border: none; font: inherit; color: var(--gray); text-decoration: underline; cursor: pointer; }
 
     /* Costs: split list + photo */
     .cost-split { display: grid; grid-template-columns: 6fr 5fr; gap: 64px; align-items: center; }
@@ -796,13 +808,17 @@
     .stats-inner { position: relative; }
     .stat-num { font-size: 3.2rem; }
 
+    /* Quote section photo strip */
+    .ribbon-quote { background: transparent; padding: 0; margin: 0 calc(50% - 50vw) 36px; width: 100vw; }
+    .ribbon-quote .ribbon-track { animation-direction: reverse; animation-duration: 55s; }
+
     /* Road divider */
     .road { position: relative; height: 70px; background: var(--light); overflow: hidden; }
     .road::after {
       content: ''; position: absolute; left: 0; right: 0; bottom: 16px; height: 3px;
       background: repeating-linear-gradient(90deg, rgba(0,0,0,.25) 0 22px, transparent 22px 40px);
     }
-    .road img { position: absolute; left: -100px; bottom: 19px; width: auto; height: 44px; animation: drive 16s linear infinite; }
+    .road img { position: absolute; left: -100px; bottom: 19px; width: auto; height: 38px; animation: drive 16s linear infinite; }
     @keyframes drive { to { transform: translateX(calc(100vw + 100px)); } }
 
     /* Routes: boarding-pass tickets */
@@ -853,12 +869,18 @@
       .zz-item:nth-child(even) .zz-media { order: 0; }
       .testi-grid { grid-template-columns: 1fr; }
       .testi-card:first-child { grid-row: auto; padding: 32px 28px; }
-      .ck-wrap { grid-template-columns: 1fr; }
-      .ck-side { position: static; padding: 32px 26px; }
-      .ck-tabs { grid-template-columns: 1fr 1fr; }
+      .ck-card { grid-template-columns: 1fr; }
+      .ck-photo { min-height: 240px; }
+      .ck-body { padding: 22px 18px; }
     }
     @media (max-width: 640px) {
       .why-list { grid-template-columns: 1fr; }
+      .ck-stop .dot { width: 44px; height: 44px; font-size: 1rem; }
+      .ck-stop .nm { font-size: .78rem; }
+      .ck-track { top: 71px; }
+      .ck-truck { width: 62px; bottom: 32px; }
+      .ck-cap h3 { font-size: 1.5rem; }
+      .ck-next { width: 100%; text-align: center; }
       .ribbon img { width: 180px; height: 112px; }
       .road { height: 60px; }
     }
@@ -1066,27 +1088,36 @@
 
   <!-- ── MOVING TIPS ── -->
   <section id="tips">
-    <div class="ck-wrap">
-      <aside class="ck-side reveal">
-        <p class="section-label">Moving Checklist</p>
-        <h2 class="section-title">Your moving day, planned.</h2>
-        <p class="section-sub">Tick things off as you go. Your progress is saved on this device.</p>
-        <div class="ck-ring" role="img" aria-label="Checklist progress">
-          <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="track" cx="60" cy="60" r="52"/><circle class="bar" id="ckBar" cx="60" cy="60" r="52"/></svg>
-          <div class="ck-ring-text"><strong id="ckPct">0%</strong><span id="ckDone">0 of 20 done</span></div>
+    <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
+      <p class="section-label">Moving Checklist</p>
+      <h2 class="section-title">The Road to Your New Home</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">Tick things off and watch the truck get closer. Your progress is saved on this device.</p>
+    </div>
+
+    <div class="ck-road reveal" role="tablist" aria-label="Checklist phases">
+      <div class="ck-track" aria-hidden="true"><span class="ck-fill" id="ckFill"></span><img class="ck-truck" id="ckTruck" src="truck-icon.svg" alt="" width="124" height="62" /></div>
+      <div class="ck-stops">
+        <button type="button" class="ck-stop active" role="tab" id="ck-tab-0" aria-controls="ck-panel-0" aria-selected="true"><span class="dot"><span class="num">1</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span class="nm">2 weeks before</span><span class="ct" data-count="0">0/5</span></button>
+        <button type="button" class="ck-stop" role="tab" id="ck-tab-1" aria-controls="ck-panel-1" aria-selected="false"><span class="dot"><span class="num">2</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span class="nm">1 week before</span><span class="ct" data-count="1">0/5</span></button>
+        <button type="button" class="ck-stop" role="tab" id="ck-tab-2" aria-controls="ck-panel-2" aria-selected="false"><span class="dot"><span class="num">3</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span class="nm">Moving day</span><span class="ct" data-count="2">0/5</span></button>
+        <button type="button" class="ck-stop" role="tab" id="ck-tab-3" aria-controls="ck-panel-3" aria-selected="false"><span class="dot"><span class="num">4</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span class="nm">After the move</span><span class="ct" data-count="3">0/5</span></button>
+      </div>
+    </div>
+
+    <div class="ck-card reveal">
+      <div class="ck-photo">
+        <img class="on" src="stock_images/boxes-fragile.webp" alt="" width="1600" height="1000" loading="lazy" />
+        <img class="" src="stock_images/stacking-van.webp" alt="" width="1600" height="1000" loading="lazy" />
+        <img class="" src="stock_images/van-loading.webp" alt="" width="1600" height="1000" loading="lazy" />
+        <img class="" src="stock_images/couple-unpacking.webp" alt="" width="1600" height="1000" loading="lazy" />
+        <div class="ck-cap">
+          <span class="ck-when" id="ckWhen">Step 1</span>
+          <h3 id="ckTitle">2 weeks before</h3>
+          <p id="ckIntro">Plan ahead and get the basics sorted.</p>
+          <span class="ck-chip" id="ckChip">0 of 5 done</span>
         </div>
-        <div class="ck-actions">
-          <a href="#contact" class="btn-primary">Get a Quote</a>
-          <button type="button" class="ck-reset" id="ckReset">Reset</button>
-        </div>
-      </aside>
-      <div class="ck-main reveal">
-        <div class="ck-tabs" role="tablist" aria-label="Checklist phases">
-          <button type="button" class="ck-tab active" role="tab" id="ck-tab-0" aria-controls="ck-panel-0" aria-selected="true"><span class="ck-step">Step 1</span><span class="ck-name">2 weeks before</span><span class="ck-count" data-count="0">0/5</span></button>
-          <button type="button" class="ck-tab" role="tab" id="ck-tab-1" aria-controls="ck-panel-1" aria-selected="false"><span class="ck-step">Step 2</span><span class="ck-name">1 week before</span><span class="ck-count" data-count="1">0/5</span></button>
-          <button type="button" class="ck-tab" role="tab" id="ck-tab-2" aria-controls="ck-panel-2" aria-selected="false"><span class="ck-step">Step 3</span><span class="ck-name">Moving day</span><span class="ck-count" data-count="2">0/5</span></button>
-          <button type="button" class="ck-tab" role="tab" id="ck-tab-3" aria-controls="ck-panel-3" aria-selected="false"><span class="ck-step">Step 4</span><span class="ck-name">After the move</span><span class="ck-count" data-count="3">0/5</span></button>
-        </div>
+      </div>
+      <div class="ck-body">
         <div class="ck-panels">
           <div class="ck-panel" role="tabpanel" id="ck-panel-0" aria-labelledby="ck-tab-0">
             <label class="ck-item"><input type="checkbox" data-id="0-0" /><span class="box" aria-hidden="true"></span><span class="txt">Fix your moving date and book your movers</span></label>
@@ -1117,8 +1148,16 @@
             <label class="ck-item"><input type="checkbox" data-id="3-4" /><span class="box" aria-hidden="true"></span><span class="txt">Tell the movers promptly about any damage or issue</span></label>
           </div>
         </div>
+        <div class="ck-foot">
+          <div class="ck-total">
+            <div class="ck-total-bar"><span id="ckBar"></span></div>
+            <small id="ckDone">0 of 20 done · 0%</small>
+          </div>
+          <button type="button" class="btn-primary ck-next" id="ckNext">Next: 1 week before →</button>
+        </div>
       </div>
     </div>
+    <p class="ck-links reveal"><a href="#contact">Need help with your move? Get a quote →</a><button type="button" id="ckReset">Reset checklist</button></p>
   </section>
 
   <!-- ── COST FACTORS ── -->
@@ -1198,7 +1237,7 @@
     </div>
   </section>
 
-  <div class="road" aria-hidden="true"><img src="truck.svg" alt="" width="80" height="42" /></div>
+  <div class="road" aria-hidden="true"><img src="truck-icon.svg" alt="" width="124" height="62" /></div>
 
   <!-- ── SERVICE AREAS ── -->
   <section id="areas">
@@ -1384,6 +1423,7 @@
       <h2 class="section-title">Request a Quote</h2>
       <p class="section-sub">Fill in your move details and we'll continue the conversation on WhatsApp. Nothing is stored on this site.</p>
     </div>
+    <div class="ribbon ribbon-quote" aria-hidden="true"><div class="ribbon-track"><img src="gallery_images/svr-office.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-sofas.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-cartons.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-storage-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-loaded-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-sealed-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-fridge-wrapped.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-tarpaulin-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-furniture.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-office.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-sofas.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-cartons.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-storage-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-loaded-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-sealed-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-fridge-wrapped.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-tarpaulin-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-furniture.webp" alt="" width="240" height="150" loading="lazy" /></div></div>
     <form class="contact-form reveal" id="quoteForm">
       <label>Your name
         <input type="text" name="name" required autocomplete="name" />
@@ -1584,43 +1624,60 @@
     });
 
     // Moving checklist
-    const ckTabs = [...document.querySelectorAll('.ck-tab')];
+    const ckStops = [...document.querySelectorAll('.ck-stop')];
     const ckPanels = [...document.querySelectorAll('.ck-panel')];
     const ckBoxes = [...document.querySelectorAll('.ck-item input')];
+    const ckImgs = [...document.querySelectorAll('.ck-photo img')];
+    const ckMeta = [["2 weeks before","Plan ahead and get the basics sorted."],["1 week before","Start packing and label everything."],["Moving day","Stay close, keep valuables with you."],["After the move","Settle in and double-check everything."]];
     const CK_KEY = 'svr-checklist-v1';
+    let ckCur = 0;
+    const ckEl = id => document.getElementById(id);
+    function ckPhaseDone(n) { const bs = [...ckPanels[n].querySelectorAll('input')]; return [bs.filter(b => b.checked).length, bs.length]; }
     function ckShow(i) {
-      ckTabs.forEach((t, n) => { t.classList.toggle('active', n === i); t.setAttribute('aria-selected', String(n === i)); t.tabIndex = n === i ? 0 : -1; });
+      ckCur = i;
+      ckStops.forEach((t, n) => { t.classList.toggle('active', n === i); t.setAttribute('aria-selected', String(n === i)); t.tabIndex = n === i ? 0 : -1; });
       ckPanels.forEach((p, n) => { p.hidden = n !== i; });
+      ckImgs.forEach((im, n) => im.classList.toggle('on', n === i));
+      ckEl('ckWhen').textContent = 'Step ' + (i + 1) + ' of ' + ckStops.length;
+      ckEl('ckTitle').textContent = ckMeta[i][0];
+      ckEl('ckIntro').textContent = ckMeta[i][1];
+      const next = ckEl('ckNext');
+      next.hidden = i === ckStops.length - 1;
+      if (!next.hidden) next.textContent = 'Next: ' + ckMeta[i + 1][0] + ' →';
+      ckUpdate(false);
     }
     function ckUpdate(save) {
       const done = ckBoxes.filter(b => b.checked).length;
-      document.getElementById('ckBar').style.strokeDashoffset = 326.73 * (1 - done / ckBoxes.length);
-      document.getElementById('ckPct').textContent = Math.round(done / ckBoxes.length * 100) + '%';
-      document.getElementById('ckDone').textContent = `${done} of ${ckBoxes.length} done`;
+      const pct = Math.round(done / ckBoxes.length * 100);
+      ckEl('ckFill').style.width = pct + '%';
+      ckEl('ckTruck').style.left = pct + '%';
+      ckEl('ckBar').style.width = pct + '%';
+      ckEl('ckDone').textContent = done + ' of ' + ckBoxes.length + ' done · ' + pct + '%';
       ckPanels.forEach((p, n) => {
-        const bs = [...p.querySelectorAll('input')], d = bs.filter(b => b.checked).length;
-        document.querySelector(`[data-count="${n}"]`).textContent = `${d}/${bs.length}`;
-        ckTabs[n].classList.toggle('done', d === bs.length);
+        const [d, t] = ckPhaseDone(n);
+        document.querySelector('[data-count="' + n + '"]').textContent = d + '/' + t;
+        ckStops[n].classList.toggle('done', d === t);
       });
-      if (save) {
-        try { localStorage.setItem(CK_KEY, JSON.stringify(ckBoxes.filter(b => b.checked).map(b => b.dataset.id))); } catch (e) {}
-      }
+      const [d, t] = ckPhaseDone(ckCur);
+      ckEl('ckChip').textContent = d + ' of ' + t + ' done';
+      if (save) { try { localStorage.setItem(CK_KEY, JSON.stringify(ckBoxes.filter(b => b.checked).map(b => b.dataset.id))); } catch (e) {} }
     }
     try {
       const saved = JSON.parse(localStorage.getItem(CK_KEY) || '[]');
       ckBoxes.forEach(b => { b.checked = saved.includes(b.dataset.id); });
     } catch (e) {}
     ckBoxes.forEach(b => b.addEventListener('change', () => ckUpdate(true)));
-    ckTabs.forEach((t, i) => {
+    ckStops.forEach((t, i) => {
       t.addEventListener('click', () => ckShow(i));
       t.addEventListener('keydown', e => {
         if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-        const n = (i + (e.key === 'ArrowRight' ? 1 : ckTabs.length - 1)) % ckTabs.length;
-        ckShow(n); ckTabs[n].focus();
+        const n = (i + (e.key === 'ArrowRight' ? 1 : ckStops.length - 1)) % ckStops.length;
+        ckShow(n); ckStops[n].focus();
       });
     });
-    document.getElementById('ckReset').addEventListener('click', () => { ckBoxes.forEach(b => { b.checked = false; }); ckUpdate(true); ckShow(0); });
-    ckShow(0); ckUpdate(false);
+    ckEl('ckNext').addEventListener('click', () => ckShow(ckCur + 1));
+    ckEl('ckReset').addEventListener('click', () => { ckBoxes.forEach(b => { b.checked = false; }); ckUpdate(true); ckShow(0); });
+    ckShow(0);
 
     // Quote form → WhatsApp
     document.getElementById('quoteForm').addEventListener('submit', e => {
