@@ -5,7 +5,7 @@ Static one-page marketing site for SVR Packers & Movers, Kadapa, Andhra Pradesh.
 ## Structure
 
 - `index.html` — the whole home page (inline CSS and JS)
-- `privacy.html` — privacy policy (served at `/privacy`); `404.html` — not-found page
+- Inner pages (`about`, `routes`, `packers-and-movers-in-kadapa`, 8 `packers-movers-kadapa-to-*` route pages, `privacy`, `terms`, `404`) and `sitemap.xml` are **generated** from `tools/build-pages.js`. Edit the text there, run `node tools/build-pages.js`, and commit the output. Shared styles are in `page.css`.
 - `gallery_images/` — SVR's own photos; `stock_images/` — stock photos (`-md` = 900px version for phones, `-sm` = photo strip)
 - `fonts/` — self-hosted Space Grotesk (OFL licence)
 - `vercel.json` — security headers (CSP, HSTS, etc.) and cache rules
@@ -39,4 +39,6 @@ If the domain changes (e.g. a custom domain), update the URL in `index.html` (ca
 
 - Buttons and small text on light backgrounds use `--orange-ink` (#c0450c) for WCAG AA contrast; the brighter brand orange is used for graphics and on dark backgrounds.
 - If you replace a photo, give the new file a new name: images are cached for 7 days (`vercel.json`).
-- `privacy.html` is a standard plain-language policy; have it reviewed before relying on it.
+- `privacy.html` and `terms.html` are plain-language templates written for Indian customers (DPDP Act 2023); have them reviewed, and adjust payment, cancellation and claim terms to match how the business works.
+- To add a route page, add an entry to `ROUTES` in `tools/build-pages.js`, rebuild, and link it from the home page.
+- Distances on route pages are approximate (straight-line distance with a road factor), not measured.

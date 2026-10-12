@@ -47,8 +47,84 @@
       "postalCode": "516004",
       "addressCountry": "IN"
     },
-    "geo": { "@type": "GeoCoordinates", "latitude": 14.4624871, "longitude": 78.8312649 },
-    "areaServed": "India"
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 14.4624871,
+      "longitude": 78.8312649
+    },
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "Andhra Pradesh"
+      },
+      {
+        "@type": "Country",
+        "name": "India"
+      }
+    ],
+    "taxID": "37DURPR1470K1ZV",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Packers and movers services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Local shifting"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Long distance shifting"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "All India permit moves"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Packing and unpacking"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Office shifting"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Car and bike transport"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Loading and unloading"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Storage and warehousing"
+          }
+        }
+      ]
+    }
   }
   </script>
   <script type="application/ld+json">
@@ -389,7 +465,7 @@
 
     /* ── FOOTER ────────────────────────────────────── */
     footer { background: var(--dark); color: rgba(255,255,255,.55); padding: 72px 5% 36px; }
-    .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1.1fr 1.2fr; gap: 40px; margin-bottom: 60px; }
     .footer-brand .footer-logo { height: 38px; width: auto; margin-bottom: 18px; }
     .footer-brand p { font-size: .9rem; line-height: 1.75; max-width: 280px; }
     .footer-col h3 {
@@ -746,6 +822,11 @@
     .map-pin:hover text { fill: #ff9d6c; }
     .map-hint { text-align: center; margin-top: 10px; color: rgba(255,255,255,.62); font-size: .82rem; }
 
+    .see-all { margin-left: 10px; color: var(--orange-ink); text-transform: none; letter-spacing: 0; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .see-all:hover { text-decoration-thickness: 2px; }
+    .trust-item span a, .footer-col li span a { color: var(--orange-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+    .footer-col li span a { color: #ff9d6c; }
+
     /* Road divider */
     .road { position: relative; height: 70px; background: var(--light); overflow: hidden; }
     .road::after {
@@ -946,6 +1027,7 @@
       <li><a href="#gallery">Gallery</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#areas">Areas</a></li>
+      <li><a href="/about">About</a></li>
       <li><a href="#testimonials">Reviews</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Quote</a></li>
@@ -961,6 +1043,7 @@
     <a href="#gallery"      class="m-link">Gallery</a>
     <a href="#services"     class="m-link">Services</a>
     <a href="#areas"        class="m-link">Areas</a>
+    <a href="/about"        class="m-link">About</a>
     <a href="#testimonials" class="m-link">Reviews</a>
     <a href="#faq"          class="m-link">FAQ</a>
     <a href="#contact"      class="m-link">Quote</a>
@@ -1014,7 +1097,7 @@
   <section id="trust" aria-label="Why customers trust us">
     <div class="trust-grid">
       <div class="trust-item"><svg class="ico"><use href="#i-globe"/></svg><div><strong>All India Permit</strong><span>Move to any state</span></div></div>
-      <div class="trust-item"><svg class="ico"><use href="#i-file"/></svg><div><strong>GST Registered</strong><span>GSTIN 37DURPR1470K1ZV</span></div></div>
+      <div class="trust-item"><svg class="ico"><use href="#i-file"/></svg><div><strong>GST Registered</strong><span>GSTIN 37DURPR1470K1ZV · <a href="https://services.gst.gov.in/services/searchtp" target="_blank" rel="noopener noreferrer">Verify</a></span></div></div>
       <div class="trust-item"><svg class="ico"><use href="#i-box"/></svg><div><strong>Safe Packing</strong><span>Quality materials</span></div></div>
       <div class="trust-item"><svg class="ico ico-wa wa-g"><use href="#i-wa"/></svg><div><strong>Call &amp; WhatsApp</strong><span>Quick quotes</span></div></div>
     </div>
@@ -1351,16 +1434,16 @@
         </div>
       </div>
       <div>
-        <p class="area-group-label">Popular Routes from Kadapa</p>
+        <p class="area-group-label">Popular Routes from Kadapa <a class="see-all" href="/routes">See all routes →</a></p>
         <div class="route-grid">
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Hyderabad"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Hyderabad</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bengaluru"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Bengaluru</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Chennai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Chennai</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Visakhapatnam"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Visakhapatnam</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Mumbai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Mumbai</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Pune"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Pune</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Delhi"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Delhi</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kolkata"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Kolkata</span></a>
+          <a class="route-card" href="/packers-movers-kadapa-to-hyderabad"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Hyderabad</span></a>
+          <a class="route-card" href="/packers-movers-kadapa-to-bengaluru"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Bengaluru</span></a>
+          <a class="route-card" href="/packers-movers-kadapa-to-chennai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Chennai</span></a>
+          <a class="route-card" href="/packers-movers-kadapa-to-visakhapatnam"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Visakhapatnam</span></a>
+          <a class="route-card" href="/packers-movers-kadapa-to-mumbai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Mumbai</span></a>
+          <a class="route-card" href="/packers-movers-kadapa-to-pune"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Pune</span></a>
+          <a class="route-card" href="/packers-movers-kadapa-to-delhi"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Delhi</span></a>
+          <a class="route-card" href="/packers-movers-kadapa-to-kolkata"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Kolkata</span></a>
         </div>
       </div>
       <div class="area-cta-row">
@@ -1392,23 +1475,23 @@
           <path d="M391.1 734.9 Q453.5 613.7 582.2 568.9"/>
           </g>
               <g class="map-hq" transform="translate(391.1 734.9)"><circle class="ring" r="16"/><circle class="ring r2" r="16"/><circle class="dot" r="8"/><text x="24" y="8" text-anchor="start">Kadapa</text></g>
-              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Hyderabad" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Hyderabad"><circle class="pin-dot" cx="381.7" cy="652.4" r="8"/><text x="395.7" y="658.4" text-anchor="start">Hyderabad</text></a>
-              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Visakhapatnam" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Visakhapatnam"><circle class="pin-dot" cx="511.0" cy="643.8" r="8"/><text x="525.0" y="649.8" text-anchor="start">Visakhapatnam</text></a>
-              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bengaluru" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Bengaluru"><circle class="pin-dot" cx="353.3" cy="782.6" r="8"/><text x="339.3" y="788.6" text-anchor="end">Bengaluru</text></a>
-              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Chennai" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Chennai"><circle class="pin-dot" cx="436.4" cy="779.5" r="8"/><text x="450.4" y="785.5" text-anchor="start">Chennai</text></a>
+              <a class="map-pin" href="/packers-movers-kadapa-to-hyderabad" aria-label="Packers and movers from Kadapa to Hyderabad"><circle class="pin-dot" cx="381.7" cy="652.4" r="8"/><text x="395.7" y="658.4" text-anchor="start">Hyderabad</text></a>
+              <a class="map-pin" href="/packers-movers-kadapa-to-visakhapatnam" aria-label="Packers and movers from Kadapa to Visakhapatnam"><circle class="pin-dot" cx="511.0" cy="643.8" r="8"/><text x="525.0" y="649.8" text-anchor="start">Visakhapatnam</text></a>
+              <a class="map-pin" href="/packers-movers-kadapa-to-bengaluru" aria-label="Packers and movers from Kadapa to Bengaluru"><circle class="pin-dot" cx="353.3" cy="782.6" r="8"/><text x="339.3" y="788.6" text-anchor="end">Bengaluru</text></a>
+              <a class="map-pin" href="/packers-movers-kadapa-to-chennai" aria-label="Packers and movers from Kadapa to Chennai"><circle class="pin-dot" cx="436.4" cy="779.5" r="8"/><text x="450.4" y="785.5" text-anchor="start">Chennai</text></a>
               <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kochi" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Kochi"><circle class="pin-dot" cx="321.0" cy="860.8" r="8"/><text x="307.0" y="866.8" text-anchor="end">Kochi</text></a>
-              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Mumbai" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Mumbai"><circle class="pin-dot" cx="218.4" cy="596.1" r="8"/><text x="204.4" y="602.1" text-anchor="end">Mumbai</text></a>
-              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Pune" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Pune"><circle class="pin-dot" cx="267.1" cy="632.0" r="8"/><text x="281.1" y="638.0" text-anchor="start">Pune</text></a>
+              <a class="map-pin" href="/packers-movers-kadapa-to-mumbai" aria-label="Packers and movers from Kadapa to Mumbai"><circle class="pin-dot" cx="218.4" cy="596.1" r="8"/><text x="204.4" y="602.1" text-anchor="end">Mumbai</text></a>
+              <a class="map-pin" href="/packers-movers-kadapa-to-pune" aria-label="Packers and movers from Kadapa to Pune"><circle class="pin-dot" cx="267.1" cy="632.0" r="8"/><text x="281.1" y="638.0" text-anchor="start">Pune</text></a>
               <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Ahmedabad" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Ahmedabad"><circle class="pin-dot" cx="220.0" cy="489.3" r="8"/><text x="206.0" y="495.3" text-anchor="end">Ahmedabad</text></a>
               <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Nagpur" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Nagpur"><circle class="pin-dot" cx="398.1" cy="544.3" r="8"/><text x="412.1" y="550.3" text-anchor="start">Nagpur</text></a>
               <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Jaipur" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Jaipur"><circle class="pin-dot" cx="307.9" cy="372.8" r="8"/><text x="293.9" y="378.8" text-anchor="end">Jaipur</text></a>
-              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Delhi" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Delhi"><circle class="pin-dot" cx="346.8" cy="320.6" r="8"/><text x="360.8" y="326.6" text-anchor="start">Delhi</text></a>
+              <a class="map-pin" href="/packers-movers-kadapa-to-delhi" aria-label="Packers and movers from Kadapa to Delhi"><circle class="pin-dot" cx="346.8" cy="320.6" r="8"/><text x="360.8" y="326.6" text-anchor="start">Delhi</text></a>
               <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Lucknow" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Lucknow"><circle class="pin-dot" cx="448.9" cy="374.8" r="8"/><text x="462.9" y="380.8" text-anchor="start">Lucknow</text></a>
-              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kolkata" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Kolkata"><circle class="pin-dot" cx="651.6" cy="502.6" r="8"/><text x="651.6" y="532.6" text-anchor="middle">Kolkata</text></a>
+              <a class="map-pin" href="/packers-movers-kadapa-to-kolkata" aria-label="Packers and movers from Kadapa to Kolkata"><circle class="pin-dot" cx="651.6" cy="502.6" r="8"/><text x="651.6" y="532.6" text-anchor="middle">Kolkata</text></a>
               <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bhubaneswar" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Bhubaneswar"><circle class="pin-dot" cx="582.2" cy="568.9" r="8"/><text x="596.2" y="574.9" text-anchor="start">Bhubaneswar</text></a>
               </svg>
           </div>
-          <p class="map-hint">Tap a city to request a quote for that route</p>
+          <p class="map-hint">Tap a city to see that route or request a quote</p>
         </div>
       </div>
     </div>
@@ -1656,6 +1739,22 @@
           <li><a href="#testimonials">Reviews</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#contact">Request a Quote</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/packers-and-movers-in-kadapa">Packers &amp; Movers in Kadapa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h3>Popular Routes</h3>
+        <ul>
+          <li><a href="/packers-movers-kadapa-to-hyderabad">Kadapa to Hyderabad</a></li>
+          <li><a href="/packers-movers-kadapa-to-bengaluru">Kadapa to Bengaluru</a></li>
+          <li><a href="/packers-movers-kadapa-to-chennai">Kadapa to Chennai</a></li>
+          <li><a href="/packers-movers-kadapa-to-visakhapatnam">Kadapa to Visakhapatnam</a></li>
+          <li><a href="/packers-movers-kadapa-to-mumbai">Kadapa to Mumbai</a></li>
+          <li><a href="/packers-movers-kadapa-to-pune">Kadapa to Pune</a></li>
+          <li><a href="/packers-movers-kadapa-to-delhi">Kadapa to Delhi</a></li>
+          <li><a href="/packers-movers-kadapa-to-kolkata">Kadapa to Kolkata</a></li>
+          <li><a href="/routes">All routes →</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1675,7 +1774,7 @@
           </li>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
-            <span>GSTIN: 37DURPR1470K1ZV</span>
+            <span>GSTIN: 37DURPR1470K1ZV · <a href="https://services.gst.gov.in/services/searchtp" target="_blank" rel="noopener noreferrer">Verify</a></span>
           </li>
         </ul>
       </div>
@@ -1683,6 +1782,7 @@
     <div class="footer-bottom">
       <span>© 2026 SVR Packers &amp; Movers. All rights reserved.</span>
       <a href="/privacy" class="legal-link">Privacy Policy</a>
+      <a href="/terms" class="legal-link">Terms &amp; Conditions</a>
     </div>
   </footer>
 
