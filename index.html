@@ -23,7 +23,7 @@
   <link rel="icon" type="image/svg+xml" href="truck.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="image" href="stock_images/truck-sunset.webp" type="image/webp" />
+  <link rel="preload" as="image" href="stock_images/tata-truck.webp" type="image/webp" />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script type="application/ld+json">
   {
@@ -722,76 +722,22 @@
     .zz-card h3 { font-size: 1.5rem; margin-bottom: 8px; }
     .zz-card p { color: var(--gray); line-height: 1.75; max-width: 420px; }
 
-    /* Moving checklist: road to your new home */
+    /* Moving checklist: simple cards */
     #tips { background: var(--white); }
-    .ck-road { position: relative; max-width: 920px; margin: 0 auto 36px; padding-top: 50px; }
-    .ck-track {
-      position: absolute; left: 12.5%; right: 12.5%; top: 77px; height: 6px; border-radius: 3px;
-      background: repeating-linear-gradient(90deg, rgba(0,0,0,.2) 0 14px, transparent 14px 26px);
+    .cl-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; max-width: 1240px; margin: 0 auto; }
+    .cl-card {
+      position: relative; background: var(--light); border: 1px solid rgba(0,0,0,.06); border-radius: 22px;
+      padding: 28px 24px 26px; overflow: hidden; transition: transform .3s var(--ease), box-shadow .3s var(--ease);
     }
-    .ck-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--orange); border-radius: 3px; transition: width .7s var(--ease); }
-    .ck-truck { position: absolute; z-index: 2; left: 0; bottom: 40px; width: 84px; height: auto; transform: translateX(-50%); transition: left .7s var(--ease); filter: drop-shadow(0 4px 6px rgba(0,0,0,.18)); }
-    .ck-stops { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); }
-    .ck-stop { background: none; border: none; cursor: pointer; font-family: var(--font); color: var(--dark); display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 0 4px; }
-    .ck-stop .dot {
-      position: relative; z-index: 1; width: 56px; height: 56px; border-radius: 50%; background: var(--white);
-      border: 3px solid rgba(0,0,0,.16); display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1.15rem; transition: background .25s, border-color .25s, color .25s, box-shadow .25s;
-    }
-    .ck-stop .tick { display: none; width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
-    .ck-stop:hover .dot { border-color: var(--orange); }
-    .ck-stop.active .dot { border-color: var(--orange); color: var(--orange); box-shadow: 0 0 0 7px rgba(242,101,34,.16); }
-    .ck-stop.done .dot { background: var(--orange); border-color: var(--orange); }
-    .ck-stop.done .num { display: none; }
-    .ck-stop.done .tick { display: block; }
-    .ck-stop .nm { font-size: .98rem; font-weight: 700; margin-top: 4px; }
-    .ck-stop .ct { font-size: .8rem; font-weight: 600; color: var(--gray); }
-    .ck-stop.active .nm { color: var(--orange); }
-
-    .ck-card {
-      display: grid; grid-template-columns: 5fr 7fr; max-width: 1100px; margin: 0 auto;
-      background: var(--light); border-radius: 28px; overflow: hidden; box-shadow: 0 26px 64px rgba(0,0,0,.09);
-    }
-    .ck-photo { position: relative; min-height: 440px; background: #111; }
-    .ck-photo img { position: absolute; inset: 0; opacity: 0; transition: opacity .5s; }
-    .ck-photo img.on { opacity: 1; }
-    .ck-photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,.88) 5%, rgba(13,13,13,.1) 65%); }
-    .ck-cap { position: absolute; z-index: 2; left: 28px; right: 28px; bottom: 28px; color: #fff; }
-    .ck-when { font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #ff9d6c; }
-    .ck-cap h3 { font-size: 2rem; line-height: 1.1; margin: 8px 0; letter-spacing: -.01em; }
-    .ck-cap p { font-size: .95rem; color: rgba(255,255,255,.82); }
-    .ck-chip { display: inline-block; margin-top: 14px; background: rgba(255,255,255,.18); backdrop-filter: blur(6px); padding: 7px 16px; border-radius: 100px; font-size: .82rem; font-weight: 600; }
-
-    .ck-body { padding: 30px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; }
-    .ck-item {
-      position: relative; display: flex; align-items: center; gap: 16px; cursor: pointer;
-      background: var(--white); border-radius: 14px; padding: 16px 18px; margin-bottom: 10px;
-      border: 1px solid transparent; transition: border-color .2s;
-    }
-    .ck-item:last-child { margin-bottom: 0; }
-    .ck-item:hover { border-color: rgba(242,101,34,.4); }
-    .ck-item input { position: absolute; opacity: 0; pointer-events: none; }
-    .ck-item .box { position: relative; flex: 0 0 26px; height: 26px; border-radius: 8px; border: 2px solid rgba(0,0,0,.25); transition: background .2s, border-color .2s; }
-    .ck-item .box::after {
-      content: ''; position: absolute; left: 7px; top: 2px; width: 7px; height: 13px;
-      border: solid #fff; border-width: 0 3px 3px 0; transform: rotate(45deg) scale(0); transition: transform .2s;
-    }
-    .ck-item input:checked + .box { background: var(--orange); border-color: var(--orange); }
-    .ck-item input:checked + .box::after { transform: rotate(45deg) scale(1); }
-    .ck-item input:focus-visible + .box { outline: 2px solid var(--orange); outline-offset: 3px; }
-    .ck-item .txt { font-size: .98rem; line-height: 1.5; transition: color .2s; }
-    .ck-item input:checked ~ .txt { color: var(--gray); text-decoration: line-through; text-decoration-color: rgba(0,0,0,.3); }
-
-    .ck-foot { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid rgba(0,0,0,.1); }
-    .ck-total { flex: 1 1 200px; }
-    .ck-total-bar { height: 8px; border-radius: 4px; background: rgba(0,0,0,.1); overflow: hidden; }
-    .ck-total-bar span { display: block; height: 100%; width: 0; background: var(--orange); border-radius: 4px; transition: width .6s var(--ease); }
-    .ck-total small { display: block; margin-top: 8px; font-size: .82rem; color: var(--gray); }
-    .ck-next { border: none; cursor: pointer; font-family: var(--font); }
-    .ck-next[hidden] { display: none; }
-    .ck-links { max-width: 1100px; margin: 22px auto 0; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: .92rem; }
-    .ck-links a { color: var(--orange); font-weight: 600; }
-    .ck-links button { background: none; border: none; font: inherit; color: var(--gray); text-decoration: underline; cursor: pointer; }
+    .cl-card::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: var(--orange); }
+    .cl-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(0,0,0,.09); }
+    .cl-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .cl-num { font-size: 2.8rem; font-weight: 700; line-height: 1; color: rgba(242,101,34,.28); letter-spacing: -.03em; }
+    .cl-ico { width: 46px; height: 46px; border-radius: 14px; background: rgba(242,101,34,.12); display: flex; align-items: center; justify-content: center; }
+    .cl-card h3 { font-size: 1.2rem; margin-bottom: 16px; }
+    .cl-card ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+    .cl-card li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: .92rem; line-height: 1.55; color: #3a3a3a; }
+    .cl-card li svg { width: 22px; height: 22px; padding: 4px; border-radius: 50%; background: var(--orange); fill: none; stroke: #fff; stroke-width: 3.2; stroke-linecap: round; stroke-linejoin: round; margin-top: 1px; }
 
     /* Costs: split list + photo */
     .cost-split { display: grid; grid-template-columns: 6fr 5fr; gap: 64px; align-items: center; }
@@ -844,7 +790,7 @@
     .testi-card:first-child .testi-loc { color: rgba(255,255,255,.6); }
 
     /* CTA band */
-    #cta-band { position: relative; text-align: center; padding: 130px 5%; background: #0d0d0d url('stock_images/truck-highway.webp') center / cover; }
+    #cta-band { position: relative; text-align: center; padding: 130px 5%; background: #0d0d0d url('stock_images/mountain-road.webp') center / cover; }
     #cta-band::before { content: ''; position: absolute; inset: 0; background: rgba(13,13,13,.74); }
     .cta-inner { position: relative; max-width: 720px; margin: 0 auto; }
     .cta-inner h2 { color: var(--white); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1; letter-spacing: -.02em; margin-bottom: 14px; }
@@ -869,18 +815,11 @@
       .zz-item:nth-child(even) .zz-media { order: 0; }
       .testi-grid { grid-template-columns: 1fr; }
       .testi-card:first-child { grid-row: auto; padding: 32px 28px; }
-      .ck-card { grid-template-columns: 1fr; }
-      .ck-photo { min-height: 240px; }
-      .ck-body { padding: 22px 18px; }
+      .cl-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
       .why-list { grid-template-columns: 1fr; }
-      .ck-stop .dot { width: 44px; height: 44px; font-size: 1rem; }
-      .ck-stop .nm { font-size: .78rem; }
-      .ck-track { top: 71px; }
-      .ck-truck { width: 62px; bottom: 32px; }
-      .ck-cap h3 { font-size: 1.5rem; }
-      .ck-next { width: 100%; text-align: center; }
+      .cl-grid { grid-template-columns: 1fr; }
       .ribbon img { width: 180px; height: 112px; }
       .road { height: 60px; }
     }
@@ -953,9 +892,9 @@
   <!-- ── HERO ── -->
   <section id="hero">
     <div class="hero-bg">
-      <div class="hero-slide" style="background-image:url('stock_images/truck-sunset.webp')"></div>
-      <div class="hero-slide" style="background-image:url('stock_images/truck-highway.webp')"></div>
-      <div class="hero-slide" style="background-image:url('stock_images/movers-boxes.webp')"></div>
+      <div class="hero-slide" style="background-image:url('stock_images/tata-truck.webp')"></div>
+      <div class="hero-slide" style="background-image:url('stock_images/cargo-truck.webp')"></div>
+      <div class="hero-slide" style="background-image:url('stock_images/hyderabad-skyline.webp')"></div>
     </div>
     <div class="hero-content">
       <h1 class="hero-h1"><span style="display:block">Making Your Move</span><em>Quick &amp; Easy</em></h1>
@@ -1025,7 +964,7 @@
   <section id="services">
     <div class="svc-split">
       <div class="svc-visual reveal">
-        <img id="svcImg" src="stock_images/man-carrying.webp" alt="Local moves in Kadapa" width="900" height="494" />
+        <img id="svcImg" src="stock_images/indian-couple-home.webp" alt="Local moves in Kadapa" width="900" height="494" />
         <span class="svc-badge" id="svcBadge">Local moves in Kadapa</span>
       </div>
       <div class="svc-body">
@@ -1035,13 +974,13 @@
           <p class="section-sub">End-to-end moving solutions handled by experienced professionals who treat your belongings like their own.</p>
         </div>
         <ol class="svc-list reveal">
-          <li class="svc-row active" tabindex="0" role="button" aria-expanded="true" data-img="stock_images/man-carrying.webp" data-badge="Local moves in Kadapa"><span class="n">01</span><div><h3>Local Moving</h3><p>Fast, reliable shifting within Kadapa and nearby areas. We handle everything from packing to setup so you can settle in without the stress.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/truck-highway.webp" data-badge="Long-distance routes"><span class="n">02</span><div><h3>Long Distance Moving</h3><p>Moving across states? We have the experience and the fleet to get your household or office goods delivered safely over long distances.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/truck-sunset.webp" data-badge="Pan-India permit"><span class="n">03</span><div><h3>All India Permit</h3><p>We are authorised to move goods pan-India. No matter which corner of the country you're moving to, we've got the clearances to get there.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row active" tabindex="0" role="button" aria-expanded="true" data-img="stock_images/indian-couple-home.webp" data-badge="Local moves in Kadapa"><span class="n">01</span><div><h3>Local Moving</h3><p>Fast, reliable shifting within Kadapa and nearby areas. We handle everything from packing to setup so you can settle in without the stress.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/mountain-road.webp" data-badge="Long-distance routes"><span class="n">02</span><div><h3>Long Distance Moving</h3><p>Moving across states? We have the experience and the fleet to get your household or office goods delivered safely over long distances.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/tata-truck.webp" data-badge="Pan-India permit"><span class="n">03</span><div><h3>All India Permit</h3><p>We are authorised to move goods pan-India. No matter which corner of the country you're moving to, we've got the clearances to get there.</p></div><span class="arr" aria-hidden="true">→</span></li>
           <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/boxes-fragile.webp" data-badge="Careful packing"><span class="n">04</span><div><h3>Packing &amp; Unpacking</h3><p>Quality packing materials and skilled hands ensure fragile items, furniture, and electronics reach the destination in perfect condition.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/van-warehouse.webp" data-badge="Office relocation"><span class="n">05</span><div><h3>Office Shifting</h3><p>Desks, files, IT equipment and fixtures moved with minimal downtime, so your team is back to work quickly.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/truck-sunset.webp" data-badge="Vehicle transport"><span class="n">06</span><div><h3>Car &amp; Bike Transport</h3><p>Your vehicle moved securely along with your household goods, so everything arrives at your new home together.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/van-loading.webp" data-badge="Loading &amp; unloading"><span class="n">07</span><div><h3>Loading &amp; Unloading</h3><p>Trained hands to load heavy furniture and appliances carefully, and to unload and place them where you want them.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/hyderabad-skyline.webp" data-badge="Office relocation"><span class="n">05</span><div><h3>Office Shifting</h3><p>Desks, files, IT equipment and fixtures moved with minimal downtime, so your team is back to work quickly.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/cargo-truck.webp" data-badge="Vehicle transport"><span class="n">06</span><div><h3>Car &amp; Bike Transport</h3><p>Your vehicle moved securely along with your household goods, so everything arrives at your new home together.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/sacks-truck.webp" data-badge="Loading &amp; unloading"><span class="n">07</span><div><h3>Loading &amp; Unloading</h3><p>Trained hands to load heavy furniture and appliances carefully, and to unload and place them where you want them.</p></div><span class="arr" aria-hidden="true">→</span></li>
           <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/warehouse-aisle.webp" data-badge="Safe storage"><span class="n">08</span><div><h3>Storage &amp; Warehousing</h3><p>Not ready to move in yet? Ask us about safe short-term storage for your goods between homes.</p></div><span class="arr" aria-hidden="true">→</span></li>
         </ol>
       </div>
@@ -1049,7 +988,7 @@
   </section>
 
   <!-- ── PHOTO RIBBON ── -->
-  <div class="ribbon" aria-hidden="true"><div class="ribbon-track"><img src="stock_images/truck-sunset-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/truck-highway-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/movers-boxes-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/van-loading-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-aisle-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-shelves-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/boxes-fragile-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/family-boxes-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/van-warehouse-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/man-carrying-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/stacking-van-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/couple-unpacking-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/truck-sunset-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/truck-highway-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/movers-boxes-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/van-loading-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-aisle-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-shelves-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/boxes-fragile-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/family-boxes-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/van-warehouse-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/man-carrying-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/stacking-van-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/couple-unpacking-sm.webp" alt="" width="240" height="150" loading="lazy" /></div></div>
+  <div class="ribbon" aria-hidden="true"><div class="ribbon-track"><img src="stock_images/tata-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/indian-couple-home-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/sacks-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/mountain-road-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/boxes-fragile-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/cargo-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/hyderabad-skyline-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-aisle-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/van-loading-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/indian-couple-sofa-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-shelves-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/man-carrying-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/tata-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/indian-couple-home-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/sacks-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/mountain-road-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/boxes-fragile-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/cargo-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/hyderabad-skyline-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-aisle-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/van-loading-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/indian-couple-sofa-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-shelves-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/man-carrying-sm.webp" alt="" width="240" height="150" loading="lazy" /></div></div>
 
   <!-- ── WHY CHOOSE US ── -->
   <section id="why">
@@ -1090,74 +1029,55 @@
   <section id="tips">
     <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
       <p class="section-label">Moving Checklist</p>
-      <h2 class="section-title">The Road to Your New Home</h2>
-      <p class="section-sub" style="margin-left:auto;margin-right:auto">Tick things off and watch the truck get closer. Your progress is saved on this device.</p>
+      <h2 class="section-title">Your Moving Checklist</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">Simple steps we share with every family, from booking to settling in.</p>
     </div>
-
-    <div class="ck-road reveal" role="tablist" aria-label="Checklist phases">
-      <div class="ck-track" aria-hidden="true"><span class="ck-fill" id="ckFill"></span><img class="ck-truck" id="ckTruck" src="truck-icon.svg" alt="" width="124" height="62" /></div>
-      <div class="ck-stops">
-        <button type="button" class="ck-stop active" role="tab" id="ck-tab-0" aria-controls="ck-panel-0" aria-selected="true"><span class="dot"><span class="num">1</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span class="nm">2 weeks before</span><span class="ct" data-count="0">0/5</span></button>
-        <button type="button" class="ck-stop" role="tab" id="ck-tab-1" aria-controls="ck-panel-1" aria-selected="false"><span class="dot"><span class="num">2</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span class="nm">1 week before</span><span class="ct" data-count="1">0/5</span></button>
-        <button type="button" class="ck-stop" role="tab" id="ck-tab-2" aria-controls="ck-panel-2" aria-selected="false"><span class="dot"><span class="num">3</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span class="nm">Moving day</span><span class="ct" data-count="2">0/5</span></button>
-        <button type="button" class="ck-stop" role="tab" id="ck-tab-3" aria-controls="ck-panel-3" aria-selected="false"><span class="dot"><span class="num">4</span><svg class="tick" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span class="nm">After the move</span><span class="ct" data-count="3">0/5</span></button>
-      </div>
+    <div class="cl-grid">
+      <article class="cl-card reveal">
+        <div class="cl-top"><span class="cl-num">01</span><span class="cl-ico"><svg class="ico"><use href="#i-calendar"/></svg></span></div>
+        <h3>2 weeks before</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Fix your date and book your packers</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Donate or sell things you no longer use</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Take permission from society office or landlord for lift and parking</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Plan address change for Aadhaar, bank, LPG, electricity and water</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Keep original documents and valuables in one bag</span></li>
+        </ul>
+      </article>
+      <article class="cl-card reveal">
+        <div class="cl-top"><span class="cl-num">02</span><span class="cl-ico"><svg class="ico"><use href="#i-box"/></svg></span></div>
+        <h3>1 week before</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Start packing items you rarely use</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Label every box room-wise</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Take photos of TV, set-top box and wiring</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Book a technician to uninstall AC and washing machine</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Empty and defrost the fridge a day before</span></li>
+        </ul>
+      </article>
+      <article class="cl-card reveal">
+        <div class="cl-top"><span class="cl-num">03</span><span class="cl-ico"><svg class="ico"><use href="#i-route"/></svg></span></div>
+        <h3>Moving day</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Keep cash, jewellery and documents with you</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Pack an essentials bag: medicines, chargers, clothes</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Check each room with the crew before loading</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Keep drinking water and snacks ready</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Check cupboards, balcony and terrace one last time</span></li>
+        </ul>
+      </article>
+      <article class="cl-card reveal">
+        <div class="cl-top"><span class="cl-num">04</span><span class="cl-ico"><svg class="ico"><use href="#i-check"/></svg></span></div>
+        <h3>After the move</h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Check all items against your list</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Get AC, TV and Wi-Fi or DTH set up again</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Unpack kitchen and essentials first</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Shift LPG, electricity and water connections</span></li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Tell us at once if anything is damaged</span></li>
+        </ul>
+      </article>
     </div>
-
-    <div class="ck-card reveal">
-      <div class="ck-photo">
-        <img class="on" src="stock_images/boxes-fragile.webp" alt="" width="1600" height="1000" loading="lazy" />
-        <img class="" src="stock_images/stacking-van.webp" alt="" width="1600" height="1000" loading="lazy" />
-        <img class="" src="stock_images/van-loading.webp" alt="" width="1600" height="1000" loading="lazy" />
-        <img class="" src="stock_images/couple-unpacking.webp" alt="" width="1600" height="1000" loading="lazy" />
-        <div class="ck-cap">
-          <span class="ck-when" id="ckWhen">Step 1</span>
-          <h3 id="ckTitle">2 weeks before</h3>
-          <p id="ckIntro">Plan ahead and get the basics sorted.</p>
-          <span class="ck-chip" id="ckChip">0 of 5 done</span>
-        </div>
-      </div>
-      <div class="ck-body">
-        <div class="ck-panels">
-          <div class="ck-panel" role="tabpanel" id="ck-panel-0" aria-labelledby="ck-tab-0">
-            <label class="ck-item"><input type="checkbox" data-id="0-0" /><span class="box" aria-hidden="true"></span><span class="txt">Fix your moving date and book your movers</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="0-1" /><span class="box" aria-hidden="true"></span><span class="txt">Declutter and donate what you no longer use</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="0-2" /><span class="box" aria-hidden="true"></span><span class="txt">Arrange packing materials, or ask us to bring them</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="0-3" /><span class="box" aria-hidden="true"></span><span class="txt">Inform school, bank, landlord and utilities of your new address</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="0-4" /><span class="box" aria-hidden="true"></span><span class="txt">Gather important documents into one folder</span></label>
-          </div>
-          <div class="ck-panel" role="tabpanel" id="ck-panel-1" aria-labelledby="ck-tab-1">
-            <label class="ck-item"><input type="checkbox" data-id="1-0" /><span class="box" aria-hidden="true"></span><span class="txt">Pack rooms and items you rarely use</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="1-1" /><span class="box" aria-hidden="true"></span><span class="txt">Label every box with the room and its contents</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="1-2" /><span class="box" aria-hidden="true"></span><span class="txt">Photograph TV, router and appliance cable setups</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="1-3" /><span class="box" aria-hidden="true"></span><span class="txt">Empty, defrost and dry the fridge</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="1-4" /><span class="box" aria-hidden="true"></span><span class="txt">Reconfirm the date and timing with SVR</span></label>
-          </div>
-          <div class="ck-panel" role="tabpanel" id="ck-panel-2" aria-labelledby="ck-tab-2">
-            <label class="ck-item"><input type="checkbox" data-id="2-0" /><span class="box" aria-hidden="true"></span><span class="txt">Keep your essentials bag with you</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="2-1" /><span class="box" aria-hidden="true"></span><span class="txt">Keep cash, jewellery and documents with you</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="2-2" /><span class="box" aria-hidden="true"></span><span class="txt">Walk through each room with the crew and check items off</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="2-3" /><span class="box" aria-hidden="true"></span><span class="txt">Pack and disconnect electronics last</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="2-4" /><span class="box" aria-hidden="true"></span><span class="txt">Do a final check of cupboards, lofts and balconies</span></label>
-          </div>
-          <div class="ck-panel" role="tabpanel" id="ck-panel-3" aria-labelledby="ck-tab-3">
-            <label class="ck-item"><input type="checkbox" data-id="3-0" /><span class="box" aria-hidden="true"></span><span class="txt">Check boxes and furniture against your list</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="3-1" /><span class="box" aria-hidden="true"></span><span class="txt">Unpack the essentials bag and kitchen first</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="3-2" /><span class="box" aria-hidden="true"></span><span class="txt">Reconnect appliances and test that they work</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="3-3" /><span class="box" aria-hidden="true"></span><span class="txt">Update your address on IDs, bank and gas connection</span></label>
-            <label class="ck-item"><input type="checkbox" data-id="3-4" /><span class="box" aria-hidden="true"></span><span class="txt">Tell the movers promptly about any damage or issue</span></label>
-          </div>
-        </div>
-        <div class="ck-foot">
-          <div class="ck-total">
-            <div class="ck-total-bar"><span id="ckBar"></span></div>
-            <small id="ckDone">0 of 20 done · 0%</small>
-          </div>
-          <button type="button" class="btn-primary ck-next" id="ckNext">Next: 1 week before →</button>
-        </div>
-      </div>
-    </div>
-    <p class="ck-links reveal"><a href="#contact">Need help with your move? Get a quote →</a><button type="button" id="ckReset">Reset checklist</button></p>
   </section>
 
   <!-- ── COST FACTORS ── -->
@@ -1622,62 +1542,6 @@
       row.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover)').matches) activateSvc(row); });
       row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateSvc(row); } });
     });
-
-    // Moving checklist
-    const ckStops = [...document.querySelectorAll('.ck-stop')];
-    const ckPanels = [...document.querySelectorAll('.ck-panel')];
-    const ckBoxes = [...document.querySelectorAll('.ck-item input')];
-    const ckImgs = [...document.querySelectorAll('.ck-photo img')];
-    const ckMeta = [["2 weeks before","Plan ahead and get the basics sorted."],["1 week before","Start packing and label everything."],["Moving day","Stay close, keep valuables with you."],["After the move","Settle in and double-check everything."]];
-    const CK_KEY = 'svr-checklist-v1';
-    let ckCur = 0;
-    const ckEl = id => document.getElementById(id);
-    function ckPhaseDone(n) { const bs = [...ckPanels[n].querySelectorAll('input')]; return [bs.filter(b => b.checked).length, bs.length]; }
-    function ckShow(i) {
-      ckCur = i;
-      ckStops.forEach((t, n) => { t.classList.toggle('active', n === i); t.setAttribute('aria-selected', String(n === i)); t.tabIndex = n === i ? 0 : -1; });
-      ckPanels.forEach((p, n) => { p.hidden = n !== i; });
-      ckImgs.forEach((im, n) => im.classList.toggle('on', n === i));
-      ckEl('ckWhen').textContent = 'Step ' + (i + 1) + ' of ' + ckStops.length;
-      ckEl('ckTitle').textContent = ckMeta[i][0];
-      ckEl('ckIntro').textContent = ckMeta[i][1];
-      const next = ckEl('ckNext');
-      next.hidden = i === ckStops.length - 1;
-      if (!next.hidden) next.textContent = 'Next: ' + ckMeta[i + 1][0] + ' →';
-      ckUpdate(false);
-    }
-    function ckUpdate(save) {
-      const done = ckBoxes.filter(b => b.checked).length;
-      const pct = Math.round(done / ckBoxes.length * 100);
-      ckEl('ckFill').style.width = pct + '%';
-      ckEl('ckTruck').style.left = pct + '%';
-      ckEl('ckBar').style.width = pct + '%';
-      ckEl('ckDone').textContent = done + ' of ' + ckBoxes.length + ' done · ' + pct + '%';
-      ckPanels.forEach((p, n) => {
-        const [d, t] = ckPhaseDone(n);
-        document.querySelector('[data-count="' + n + '"]').textContent = d + '/' + t;
-        ckStops[n].classList.toggle('done', d === t);
-      });
-      const [d, t] = ckPhaseDone(ckCur);
-      ckEl('ckChip').textContent = d + ' of ' + t + ' done';
-      if (save) { try { localStorage.setItem(CK_KEY, JSON.stringify(ckBoxes.filter(b => b.checked).map(b => b.dataset.id))); } catch (e) {} }
-    }
-    try {
-      const saved = JSON.parse(localStorage.getItem(CK_KEY) || '[]');
-      ckBoxes.forEach(b => { b.checked = saved.includes(b.dataset.id); });
-    } catch (e) {}
-    ckBoxes.forEach(b => b.addEventListener('change', () => ckUpdate(true)));
-    ckStops.forEach((t, i) => {
-      t.addEventListener('click', () => ckShow(i));
-      t.addEventListener('keydown', e => {
-        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-        const n = (i + (e.key === 'ArrowRight' ? 1 : ckStops.length - 1)) % ckStops.length;
-        ckShow(n); ckStops[n].focus();
-      });
-    });
-    ckEl('ckNext').addEventListener('click', () => ckShow(ckCur + 1));
-    ckEl('ckReset').addEventListener('click', () => { ckBoxes.forEach(b => { b.checked = false; }); ckUpdate(true); ckShow(0); });
-    ckShow(0);
 
     // Quote form → WhatsApp
     document.getElementById('quoteForm').addEventListener('submit', e => {

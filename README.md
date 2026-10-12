@@ -26,4 +26,4 @@ If the domain changes (e.g. a custom domain), update the URL in `index.html` (ca
 ## Images
 
 - `gallery_images/` — SVR's own photos (gallery and "How It Works").
-- `stock_images/` — free stock photos from [Pexels](https://www.pexels.com/license/) (free for commercial use, attribution not required). Pexels photo IDs: 5410923, 14005602, 7464703, 4391486, 4483610, 5156696, 6169669, 7415035, 6169177, 5025669, 5025665, 4245908. These are illustrative and do not show SVR staff or vehicles.
+- `stock_images/` — free stock photos from [Pexels](https://www.pexels.com/license/) (free for commercial use, attribution not required). Pexels photo IDs: 29057947, 29057946, 15733306, 12166350, 4307963, 4307927, 4456656, 4391486, 5025669, 7415035, 6169669, 4483610, 5156696. These are illustrative and do not show SVR staff or vehicles.
