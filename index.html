@@ -782,20 +782,18 @@
     .map-stage { position: relative; aspect-ratio: 820 / 926; max-width: 520px; margin: 0 auto; background: radial-gradient(circle at 48% 70%, rgba(242,101,34,.12), transparent 60%); }
     .map-base { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
     .map-overlay { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-    .map-routes path { fill: none; stroke: var(--orange); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 7 9; animation: routeFlow 1.4s linear infinite; opacity: .9; }
+    .map-routes path { fill: none; stroke: var(--orange); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 7 9; animation: routeFlow 1.4s linear infinite; opacity: .7; }
     @keyframes routeFlow { to { stroke-dashoffset: -16; } }
     .map-hq .dot { fill: #fff; stroke: var(--orange); stroke-width: 4; }
     .map-hq .ring { fill: none; stroke: var(--orange); stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: hqPulse 2.2s ease-out infinite; }
     .map-hq .ring.r2 { animation-delay: 1.1s; }
     @keyframes hqPulse { from { transform: scale(.6); opacity: .9; } to { transform: scale(2.4); opacity: 0; } }
-    .map-hq text, .map-pin text { font-family: var(--font); font-size: 21px; font-weight: 600; fill: #fff; paint-order: stroke; stroke: #0d0d0d; stroke-width: 5px; stroke-linejoin: round; }
+    .map-hq text, .map-pin text { font-family: var(--font); font-size: 19px; font-weight: 600; fill: #fff; paint-order: stroke; stroke: #0d0d0d; stroke-width: 5px; stroke-linejoin: round; }
     .map-pin { cursor: pointer; }
-    .map-pin .pin-img { transition: transform .25s var(--ease); transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 3px 5px rgba(0,0,0,.5)); }
-    .map-pin:hover .pin-img, .map-pin:focus-visible .pin-img { transform: scale(1.22); }
-    .map-hint { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; color: rgba(255,255,255,.62); font-size: .82rem; }
-    .map-hint .ico { color: #25d366; width: 18px; height: 18px; }
-    .route-card { grid-template-columns: auto 1fr auto 22px; }
-    .route-card .wa-g { width: 22px; height: 22px; }
+    .pin-dot { fill: var(--orange); stroke: #fff; stroke-width: 3; transition: transform .25s var(--ease); transform-box: fill-box; transform-origin: center; }
+    .map-pin:hover .pin-dot, .map-pin:focus-visible .pin-dot { transform: scale(1.4); }
+    .map-pin:hover text { fill: #ff9d6c; }
+    .map-hint { text-align: center; margin-top: 10px; color: rgba(255,255,255,.62); font-size: .82rem; }
 
     /* Road divider */
     .road { position: relative; height: 70px; background: var(--light); overflow: hidden; }
@@ -808,7 +806,7 @@
 
     /* Routes: boarding-pass tickets */
     .route-card {
-      display: grid; grid-template-columns: auto 1fr auto 22px; align-items: center; gap: 12px;
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px;
       background: var(--light); border: 1px dashed rgba(0,0,0,.28); border-radius: 14px; padding: 18px 20px;
     }
     .route-card .rt-city { font-weight: 700; font-size: .95rem; }
@@ -1213,29 +1211,61 @@
     </div>
     <div class="areas-wrap reveal">
       <div>
-        <p class="area-group-label">Pan-India Coverage</p>
+        <p class="area-group-label">Andhra Pradesh</p>
         <div class="area-pills">
           <span class="area-pill home"><span class="area-dot"></span>Kadapa (HQ)</span>
+          <span class="area-pill"><span class="area-dot"></span>Tirupati</span>
+          <span class="area-pill"><span class="area-dot"></span>Nellore</span>
+          <span class="area-pill"><span class="area-dot"></span>Vijayawada</span>
+          <span class="area-pill"><span class="area-dot"></span>Visakhapatnam</span>
+          <span class="area-pill"><span class="area-dot"></span>Kurnool</span>
+          <span class="area-pill"><span class="area-dot"></span>Anantapur</span>
+          <span class="area-pill"><span class="area-dot"></span>Guntur</span>
+        </div>
+      </div>
+      <div>
+        <p class="area-group-label">South India</p>
+        <div class="area-pills">
           <span class="area-pill"><span class="area-dot"></span>Hyderabad</span>
           <span class="area-pill"><span class="area-dot"></span>Bengaluru</span>
           <span class="area-pill"><span class="area-dot"></span>Chennai</span>
+          <span class="area-pill"><span class="area-dot"></span>Coimbatore</span>
+          <span class="area-pill"><span class="area-dot"></span>Kochi</span>
+          <span class="area-pill"><span class="area-dot"></span>Mysuru</span>
+        </div>
+      </div>
+      <div>
+        <p class="area-group-label">West &amp; Central India</p>
+        <div class="area-pills">
           <span class="area-pill"><span class="area-dot"></span>Mumbai</span>
-          <span class="area-pill"><span class="area-dot"></span>Delhi</span>
           <span class="area-pill"><span class="area-dot"></span>Pune</span>
+          <span class="area-pill"><span class="area-dot"></span>Ahmedabad</span>
+          <span class="area-pill"><span class="area-dot"></span>Nagpur</span>
+          <span class="area-pill"><span class="area-dot"></span>Indore</span>
+        </div>
+      </div>
+      <div>
+        <p class="area-group-label">North &amp; East India</p>
+        <div class="area-pills">
+          <span class="area-pill"><span class="area-dot"></span>Delhi</span>
+          <span class="area-pill"><span class="area-dot"></span>Jaipur</span>
+          <span class="area-pill"><span class="area-dot"></span>Lucknow</span>
           <span class="area-pill"><span class="area-dot"></span>Kolkata</span>
+          <span class="area-pill"><span class="area-dot"></span>Bhubaneswar</span>
           <span class="area-pill"><span class="area-dot"></span>&amp; more across India</span>
         </div>
       </div>
       <div>
         <p class="area-group-label">Popular Routes from Kadapa</p>
         <div class="route-grid">
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Hyderabad"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Hyderabad</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bengaluru"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Bengaluru</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Chennai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Chennai</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Mumbai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Mumbai</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Delhi"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Delhi</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Pune"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Pune</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kolkata"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Kolkata</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Hyderabad"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Hyderabad</span></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bengaluru"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Bengaluru</span></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Chennai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Chennai</span></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Visakhapatnam"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Visakhapatnam</span></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Mumbai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Mumbai</span></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Pune"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Pune</span></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Delhi"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Delhi</span></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kolkata"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Kolkata</span></a>
         </div>
       </div>
       <div class="area-cta-row">
@@ -1249,48 +1279,41 @@
           <div class="map-top"><span class="map-title">Our network</span><span class="map-chip"><i></i>Kadapa HQ</span></div>
           <div class="map-stage">
             <img class="map-base" src="india-map.svg" alt="" width="820" height="926" loading="lazy" />
-            <svg class="map-overlay" viewBox="90 36 820 926" role="group" aria-label="Map of India showing routes from Kadapa, Andhra Pradesh, with WhatsApp quote links">
+            <svg class="map-overlay" viewBox="90 36 820 926" role="group" aria-label="Map of India showing routes from Kadapa, Andhra Pradesh, to major cities">
               <g class="map-routes">
-          <path d="M391.1 734.9 Q404.5 691.6 381.7 652.4"/>
-          <path d="M391.1 734.9 Q361.2 749.0 351.3 780.6"/>
-          <path d="M391.1 734.9 Q423.1 746.2 436.4 777.5"/>
-          <path d="M391.1 734.9 Q334.7 626.1 216.4 594.1"/>
-          <path d="M391.1 734.9 Q460.1 518.0 346.8 320.6"/>
-          <path d="M391.1 734.9 Q352.3 657.6 269.1 634.0"/>
-          <path d="M391.1 734.9 Q470.2 561.4 651.6 502.6"/>
+          <path d="M391.1 734.9 Q396.3 692.5 381.7 652.4"/>
+          <path d="M391.1 734.9 Q432.8 665.4 511.0 643.8"/>
+          <path d="M391.1 734.9 Q366.5 754.2 353.3 782.6"/>
+          <path d="M391.1 734.9 Q419.1 751.8 436.4 779.5"/>
+          <path d="M391.1 734.9 Q330.9 783.8 321.0 860.8"/>
+          <path d="M391.1 734.9 Q332.5 631.0 218.4 596.1"/>
+          <path d="M391.1 734.9 Q349.7 658.7 267.1 632.0"/>
+          <path d="M391.1 734.9 Q354.7 577.9 220.0 489.3"/>
+          <path d="M391.1 734.9 Q356.5 638.2 398.1 544.3"/>
+          <path d="M391.1 734.9 Q421.9 537.2 307.9 372.8"/>
+          <path d="M391.1 734.9 Q451.8 518.9 346.8 320.6"/>
+          <path d="M391.1 734.9 Q348.0 543.3 448.9 374.8"/>
+          <path d="M391.1 734.9 Q474.9 566.6 651.6 502.6"/>
+          <path d="M391.1 734.9 Q453.5 613.7 582.2 568.9"/>
           </g>
               <g class="map-hq" transform="translate(391.1 734.9)"><circle class="ring" r="16"/><circle class="ring r2" r="16"/><circle class="dot" r="8"/><text x="24" y="8" text-anchor="start">Kadapa</text></g>
-              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Hyderabad" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Hyderabad on WhatsApp">
-          <image class="pin-img" href="whatsapp-logo.svg" x="359.7" y="630.4" width="44" height="44"/>
-          <text x="412" y="660" text-anchor="start">Hyderabad</text>
-        </a>
-        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bengaluru" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Bengaluru on WhatsApp">
-          <image class="pin-img" href="whatsapp-logo.svg" x="329.3" y="758.6" width="44" height="44"/>
-          <text x="321.3" y="788.6" text-anchor="end">Bengaluru</text>
-        </a>
-        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Chennai" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Chennai on WhatsApp">
-          <image class="pin-img" href="whatsapp-logo.svg" x="414.4" y="755.5" width="44" height="44"/>
-          <text x="466.4" y="785.5" text-anchor="start">Chennai</text>
-        </a>
-        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Mumbai" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Mumbai on WhatsApp">
-          <image class="pin-img" href="whatsapp-logo.svg" x="194.4" y="572.1" width="44" height="44"/>
-          <text x="184.4" y="598.1" text-anchor="end">Mumbai</text>
-        </a>
-        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Delhi" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Delhi on WhatsApp">
-          <image class="pin-img" href="whatsapp-logo.svg" x="324.8" y="298.6" width="44" height="44"/>
-          <text x="346.8" y="356.6" text-anchor="middle">Delhi</text>
-        </a>
-        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Pune" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Pune on WhatsApp">
-          <image class="pin-img" href="whatsapp-logo.svg" x="247.1" y="612.0" width="44" height="44"/>
-          <text x="299.1" y="640.0" text-anchor="start">Pune</text>
-        </a>
-        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kolkata" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Kolkata on WhatsApp">
-          <image class="pin-img" href="whatsapp-logo.svg" x="629.6" y="480.6" width="44" height="44"/>
-          <text x="651.6" y="538.6" text-anchor="middle">Kolkata</text>
-        </a>
-        </svg>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Hyderabad" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Hyderabad"><circle class="pin-dot" cx="381.7" cy="652.4" r="8"/><text x="395.7" y="658.4" text-anchor="start">Hyderabad</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Visakhapatnam" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Visakhapatnam"><circle class="pin-dot" cx="511.0" cy="643.8" r="8"/><text x="525.0" y="649.8" text-anchor="start">Visakhapatnam</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bengaluru" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Bengaluru"><circle class="pin-dot" cx="353.3" cy="782.6" r="8"/><text x="339.3" y="788.6" text-anchor="end">Bengaluru</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Chennai" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Chennai"><circle class="pin-dot" cx="436.4" cy="779.5" r="8"/><text x="450.4" y="785.5" text-anchor="start">Chennai</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kochi" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Kochi"><circle class="pin-dot" cx="321.0" cy="860.8" r="8"/><text x="307.0" y="866.8" text-anchor="end">Kochi</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Mumbai" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Mumbai"><circle class="pin-dot" cx="218.4" cy="596.1" r="8"/><text x="204.4" y="602.1" text-anchor="end">Mumbai</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Pune" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Pune"><circle class="pin-dot" cx="267.1" cy="632.0" r="8"/><text x="281.1" y="638.0" text-anchor="start">Pune</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Ahmedabad" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Ahmedabad"><circle class="pin-dot" cx="220.0" cy="489.3" r="8"/><text x="206.0" y="495.3" text-anchor="end">Ahmedabad</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Nagpur" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Nagpur"><circle class="pin-dot" cx="398.1" cy="544.3" r="8"/><text x="412.1" y="550.3" text-anchor="start">Nagpur</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Jaipur" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Jaipur"><circle class="pin-dot" cx="307.9" cy="372.8" r="8"/><text x="293.9" y="378.8" text-anchor="end">Jaipur</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Delhi" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Delhi"><circle class="pin-dot" cx="346.8" cy="320.6" r="8"/><text x="360.8" y="326.6" text-anchor="start">Delhi</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Lucknow" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Lucknow"><circle class="pin-dot" cx="448.9" cy="374.8" r="8"/><text x="462.9" y="380.8" text-anchor="start">Lucknow</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kolkata" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Kolkata"><circle class="pin-dot" cx="651.6" cy="502.6" r="8"/><text x="651.6" y="532.6" text-anchor="middle">Kolkata</text></a>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bhubaneswar" target="_blank" rel="noopener noreferrer" aria-label="Request a quote for Kadapa to Bhubaneswar"><circle class="pin-dot" cx="582.2" cy="568.9" r="8"/><text x="596.2" y="574.9" text-anchor="start">Bhubaneswar</text></a>
+              </svg>
           </div>
-          <p class="map-hint"><svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Tap a WhatsApp icon to get a quote for that route</p>
+          <p class="map-hint">Tap a city to request a quote for that route</p>
         </div>
       </div>
     </div>
