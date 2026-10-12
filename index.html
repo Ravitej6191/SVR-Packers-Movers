@@ -877,13 +877,13 @@
     .it .ico { width: 28px; height: 28px; }
     .it h3 { font-size: 1.12rem; }
     .it p { font-size: .9rem; line-height: 1.6; color: var(--gray); }
-    .it.tint { background: #fde9dd; border-color: transparent; }
-    .it.tint .it-ico { background: rgba(242,101,34,.2); }
-    .it.tint p { color: #5b4a40; }
-    .it.dark { background: var(--dark); border-color: var(--dark); }
-    .it.dark h3 { color: var(--white); }
-    .it.dark p { color: rgba(255,255,255,.7); }
-    .it.dark .it-ico { background: rgba(242,101,34,.2); }
+    .it { transition: transform .3s var(--ease), box-shadow .3s var(--ease), background .3s, border-color .3s; }
+    .it h3, .it p { transition: color .3s; }
+    .it-ico, .it .ico { transition: background .3s, stroke .3s; }
+    .it:hover { background: var(--dark); border-color: var(--dark); }
+    .it:hover h3 { color: var(--white); }
+    .it:hover p { color: rgba(255,255,255,.72); }
+    .it:hover .it-ico { background: rgba(242,101,34,.22); }
     .it-big { grid-column: span 2; grid-row: span 2; padding: 34px 32px; }
     .it-big .it-ico { width: 64px; height: 64px; }
     .it-big .ico { width: 34px; height: 34px; }
@@ -1107,14 +1107,14 @@
       <p class="section-sub">From the sofa to the pooja shelf, each item gets the protection it needs.</p>
     </div>
     <div class="items-grid">
-      <div class="it it-big dark reveal"><span class="it-ico"><svg class="ico"><use href="#i-sofa"/></svg></span><h3>Sofas &amp; furniture</h3><p>Wrapped in stretch film and padded at the corners, so wood and fabric stay free of scratches and dust.</p></div>
+      <div class="it it-big reveal"><span class="it-ico"><svg class="ico"><use href="#i-sofa"/></svg></span><h3>Sofas &amp; furniture</h3><p>Wrapped in stretch film and padded at the corners, so wood and fabric stay free of scratches and dust.</p></div>
       <div class="it  reveal"><span class="it-ico"><svg class="ico"><use href="#i-bed"/></svg></span><h3>Beds &amp; mattresses</h3><p>Covered and tied to stay clean and dry.</p></div>
-      <div class="it tint reveal"><span class="it-ico"><svg class="ico"><use href="#i-fridge"/></svg></span><h3>Fridge &amp; washing machine</h3><p>Wrapped and secured so doors stay shut on the road.</p></div>
-      <div class="it tint reveal"><span class="it-ico"><svg class="ico"><use href="#i-tv"/></svg></span><h3>TV &amp; electronics</h3><p>Cushioned and boxed with care.</p></div>
+      <div class="it reveal"><span class="it-ico"><svg class="ico"><use href="#i-fridge"/></svg></span><h3>Fridge &amp; washing machine</h3><p>Wrapped and secured so doors stay shut on the road.</p></div>
+      <div class="it reveal"><span class="it-ico"><svg class="ico"><use href="#i-tv"/></svg></span><h3>TV &amp; electronics</h3><p>Cushioned and boxed with care.</p></div>
       <div class="it  reveal"><span class="it-ico"><svg class="ico"><use href="#i-glass"/></svg></span><h3>Kitchen &amp; glassware</h3><p>Bubble-wrapped and packed piece by piece.</p></div>
       <div class="it  reveal"><span class="it-ico"><svg class="ico"><use href="#i-book"/></svg></span><h3>Clothes &amp; books</h3><p>Sturdy cartons, labelled room-wise.</p></div>
-      <div class="it dark reveal"><span class="it-ico"><svg class="ico"><use href="#i-diya"/></svg></span><h3>Pooja items &amp; idols</h3><p>Wrapped gently and packed with respect.</p></div>
-      <div class="it tint reveal"><span class="it-ico"><svg class="ico"><use href="#i-building"/></svg></span><h3>Office files &amp; IT</h3><p>Desks, files and equipment, moved with minimal downtime.</p></div>
+      <div class="it reveal"><span class="it-ico"><svg class="ico"><use href="#i-diya"/></svg></span><h3>Pooja items &amp; idols</h3><p>Wrapped gently and packed with respect.</p></div>
+      <div class="it reveal"><span class="it-ico"><svg class="ico"><use href="#i-building"/></svg></span><h3>Office files &amp; IT</h3><p>Desks, files and equipment, moved with minimal downtime.</p></div>
       <div class="it  reveal"><span class="it-ico"><svg class="ico"><use href="#i-car"/></svg></span><h3>Cars &amp; bikes</h3><p>Transported together with your household goods.</p></div>
     </div>
   </section>
