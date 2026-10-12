@@ -754,9 +754,48 @@
     .stats-inner { position: relative; }
     .stat-num { font-size: 3.2rem; }
 
-    /* Quote section photo strip */
-    .ribbon-quote { background: transparent; padding: 0; margin: 0 calc(50% - 50vw) 36px; width: 100vw; }
+    /* Photo strip above the quote section */
+    .ribbon-quote { background: var(--white); padding: 0 0 48px; }
     .ribbon-quote .ribbon-track { animation-direction: reverse; animation-duration: 55s; }
+
+    /* WhatsApp icons */
+    .ico.ico-wa { fill: currentColor; stroke: none; width: 20px; height: 20px; }
+    .ico.wa-g { fill: #0f7a4d; color: #0f7a4d; }
+    .trust-item .ico.ico-wa { width: 32px; height: 32px; }
+    .wa-float { background: transparent; box-shadow: none; width: 64px; height: 64px; }
+    .wa-float img { width: 100%; height: 100%; filter: drop-shadow(0 6px 14px rgba(0,0,0,.28)); }
+    .btn-primary:has(.ico), .btn-outline:has(.ico) { display: inline-flex; align-items: center; justify-content: center; gap: 9px; }
+    .contact-form button .ico { color: #fff; }
+    .btn-outline .ico { color: #fff; }
+    .btn-outline:hover .ico { color: var(--dark); }
+    .sticky-cta .ico.ico-wa { color: #fff; fill: #fff; }
+
+    /* Service areas: two columns with India map */
+    .areas-split { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: start; }
+    .areas-left .section-head { margin-bottom: 36px; }
+    .areas-map { position: sticky; top: 100px; }
+    .map-card { background: var(--dark); border-radius: 28px; padding: 22px 22px 18px; box-shadow: 0 28px 70px rgba(0,0,0,.18); }
+    .map-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .map-title { color: rgba(255,255,255,.7); font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+    .map-chip { display: inline-flex; align-items: center; gap: 8px; background: rgba(242,101,34,.16); color: #ff9d6c; padding: 6px 14px; border-radius: 100px; font-size: .8rem; font-weight: 600; }
+    .map-chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
+    .map-stage { position: relative; aspect-ratio: 820 / 926; max-width: 520px; margin: 0 auto; background: radial-gradient(circle at 48% 70%, rgba(242,101,34,.12), transparent 60%); }
+    .map-base { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    .map-overlay { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .map-routes path { fill: none; stroke: var(--orange); stroke-width: 2.4; stroke-linecap: round; stroke-dasharray: 7 9; animation: routeFlow 1.4s linear infinite; opacity: .9; }
+    @keyframes routeFlow { to { stroke-dashoffset: -16; } }
+    .map-hq .dot { fill: #fff; stroke: var(--orange); stroke-width: 4; }
+    .map-hq .ring { fill: none; stroke: var(--orange); stroke-width: 2; transform-box: fill-box; transform-origin: center; animation: hqPulse 2.2s ease-out infinite; }
+    .map-hq .ring.r2 { animation-delay: 1.1s; }
+    @keyframes hqPulse { from { transform: scale(.6); opacity: .9; } to { transform: scale(2.4); opacity: 0; } }
+    .map-hq text, .map-pin text { font-family: var(--font); font-size: 21px; font-weight: 600; fill: #fff; paint-order: stroke; stroke: #0d0d0d; stroke-width: 5px; stroke-linejoin: round; }
+    .map-pin { cursor: pointer; }
+    .map-pin .pin-img { transition: transform .25s var(--ease); transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 3px 5px rgba(0,0,0,.5)); }
+    .map-pin:hover .pin-img, .map-pin:focus-visible .pin-img { transform: scale(1.22); }
+    .map-hint { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; color: rgba(255,255,255,.62); font-size: .82rem; }
+    .map-hint .ico { color: #25d366; width: 18px; height: 18px; }
+    .route-card { grid-template-columns: auto 1fr auto 22px; }
+    .route-card .wa-g { width: 22px; height: 22px; }
 
     /* Road divider */
     .road { position: relative; height: 70px; background: var(--light); overflow: hidden; }
@@ -769,7 +808,7 @@
 
     /* Routes: boarding-pass tickets */
     .route-card {
-      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px;
+      display: grid; grid-template-columns: auto 1fr auto 22px; align-items: center; gap: 12px;
       background: var(--light); border: 1px dashed rgba(0,0,0,.28); border-radius: 14px; padding: 18px 20px;
     }
     .route-card .rt-city { font-weight: 700; font-size: .95rem; }
@@ -816,9 +855,12 @@
       .testi-grid { grid-template-columns: 1fr; }
       .testi-card:first-child { grid-row: auto; padding: 32px 28px; }
       .cl-grid { grid-template-columns: 1fr 1fr; }
+      .areas-split { grid-template-columns: 1fr; gap: 36px; }
+      .areas-map { position: static; }
     }
     @media (max-width: 640px) {
       .why-list { grid-template-columns: 1fr; }
+      .map-hq text, .map-pin text { font-size: 24px; }
       .cl-grid { grid-template-columns: 1fr; }
       .ribbon img { width: 180px; height: 112px; }
       .road { height: 60px; }
@@ -836,6 +878,7 @@
 
   <!-- Icon sprite -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-wa" viewBox="0 0 16 16"><path d="M11.42 9.49c-.19-.09-1.1-.54-1.27-.61s-.29-.09-.42.1-.48.6-.59.73-.21.14-.4 0a5.13 5.13 0 0 1-1.49-.92 5.25 5.25 0 0 1-1-1.29c-.11-.18 0-.28.08-.38s.18-.21.28-.32a1.39 1.39 0 0 0 .18-.31.38.38 0 0 0 0-.33c0-.09-.42-1-.58-1.37s-.3-.32-.41-.32h-.4a.72.72 0 0 0-.5.23 2.1 2.1 0 0 0-.65 1.55A3.59 3.59 0 0 0 5 8.2 8.32 8.32 0 0 0 8.19 11c.44.19.78.3 1.05.39a2.53 2.53 0 0 0 1.17.07 1.93 1.93 0 0 0 1.26-.88 1.67 1.67 0 0 0 .11-.88c-.05-.07-.17-.12-.36-.21z"/><path d="M13.29 2.68A7.36 7.36 0 0 0 8 .5a7.44 7.44 0 0 0-6.41 11.15l-1 3.85 3.94-1a7.4 7.4 0 0 0 3.55.9H8a7.44 7.44 0 0 0 5.29-12.72zM8 14.12a6.12 6.12 0 0 1-3.15-.87l-.22-.13-2.34.61.62-2.28-.14-.23a6.18 6.18 0 0 1 9.6-7.65 6.12 6.12 0 0 1 1.81 4.37A6.19 6.19 0 0 1 8 14.12z"/></symbol>
     <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
     <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
@@ -937,7 +980,7 @@
       <div class="trust-item"><svg class="ico"><use href="#i-globe"/></svg><div><strong>All India Permit</strong><span>Move to any state</span></div></div>
       <div class="trust-item"><svg class="ico"><use href="#i-file"/></svg><div><strong>GST Registered</strong><span>GSTIN 37DURPR1470K1ZV</span></div></div>
       <div class="trust-item"><svg class="ico"><use href="#i-box"/></svg><div><strong>Safe Packing</strong><span>Quality materials</span></div></div>
-      <div class="trust-item"><svg class="ico"><use href="#i-chat"/></svg><div><strong>Call &amp; WhatsApp</strong><span>Quick quotes</span></div></div>
+      <div class="trust-item"><svg class="ico ico-wa wa-g"><use href="#i-wa"/></svg><div><strong>Call &amp; WhatsApp</strong><span>Quick quotes</span></div></div>
     </div>
   </section>
 
@@ -1161,6 +1204,8 @@
 
   <!-- ── SERVICE AREAS ── -->
   <section id="areas">
+    <div class="areas-split">
+    <div class="areas-left">
     <div class="section-head reveal">
       <p class="section-label">Where We Operate</p>
       <h2 class="section-title">Service Areas</h2>
@@ -1184,18 +1229,69 @@
       <div>
         <p class="area-group-label">Popular Routes from Kadapa</p>
         <div class="route-grid">
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Hyderabad"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Hyderabad</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bengaluru"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Bengaluru</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Chennai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Chennai</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Mumbai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Mumbai</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Delhi"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Delhi</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Pune"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Pune</span></a>
-          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kolkata"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Kolkata</span></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Hyderabad"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Hyderabad</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bengaluru"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Bengaluru</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Chennai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Chennai</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Mumbai"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Mumbai</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Delhi"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Delhi</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Pune"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Pune</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
+          <a class="route-card" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kolkata"><span class="rt-city">Kadapa</span><span class="rt-line"></span><span class="rt-city">Kolkata</span><svg class="ico ico-wa wa-g" aria-hidden="true"><use href="#i-wa"/></svg></a>
         </div>
       </div>
       <div class="area-cta-row">
         <p>Don't see your city? Call us — if we can reach it, we'll move you there.</p>
         <a href="tel:+918555882980" class="btn-primary">Check Availability →</a>
+      </div>
+    </div>
+    </div>
+    <div class="areas-map reveal">
+        <div class="map-card">
+          <div class="map-top"><span class="map-title">Our network</span><span class="map-chip"><i></i>Kadapa HQ</span></div>
+          <div class="map-stage">
+            <img class="map-base" src="india-map.svg" alt="" width="820" height="926" loading="lazy" />
+            <svg class="map-overlay" viewBox="90 36 820 926" role="group" aria-label="Map of India showing routes from Kadapa, Andhra Pradesh, with WhatsApp quote links">
+              <g class="map-routes">
+          <path d="M391.1 734.9 Q404.5 691.6 381.7 652.4"/>
+          <path d="M391.1 734.9 Q361.2 749.0 351.3 780.6"/>
+          <path d="M391.1 734.9 Q423.1 746.2 436.4 777.5"/>
+          <path d="M391.1 734.9 Q334.7 626.1 216.4 594.1"/>
+          <path d="M391.1 734.9 Q460.1 518.0 346.8 320.6"/>
+          <path d="M391.1 734.9 Q352.3 657.6 269.1 634.0"/>
+          <path d="M391.1 734.9 Q470.2 561.4 651.6 502.6"/>
+          </g>
+              <g class="map-hq" transform="translate(391.1 734.9)"><circle class="ring" r="16"/><circle class="ring r2" r="16"/><circle class="dot" r="8"/><text x="24" y="8" text-anchor="start">Kadapa</text></g>
+              <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Hyderabad" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Hyderabad on WhatsApp">
+          <image class="pin-img" href="whatsapp-logo.svg" x="359.7" y="630.4" width="44" height="44"/>
+          <text x="412" y="660" text-anchor="start">Hyderabad</text>
+        </a>
+        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Bengaluru" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Bengaluru on WhatsApp">
+          <image class="pin-img" href="whatsapp-logo.svg" x="329.3" y="758.6" width="44" height="44"/>
+          <text x="321.3" y="788.6" text-anchor="end">Bengaluru</text>
+        </a>
+        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Chennai" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Chennai on WhatsApp">
+          <image class="pin-img" href="whatsapp-logo.svg" x="414.4" y="755.5" width="44" height="44"/>
+          <text x="466.4" y="785.5" text-anchor="start">Chennai</text>
+        </a>
+        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Mumbai" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Mumbai on WhatsApp">
+          <image class="pin-img" href="whatsapp-logo.svg" x="194.4" y="572.1" width="44" height="44"/>
+          <text x="184.4" y="598.1" text-anchor="end">Mumbai</text>
+        </a>
+        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Delhi" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Delhi on WhatsApp">
+          <image class="pin-img" href="whatsapp-logo.svg" x="324.8" y="298.6" width="44" height="44"/>
+          <text x="346.8" y="356.6" text-anchor="middle">Delhi</text>
+        </a>
+        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Pune" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Pune on WhatsApp">
+          <image class="pin-img" href="whatsapp-logo.svg" x="247.1" y="612.0" width="44" height="44"/>
+          <text x="299.1" y="640.0" text-anchor="start">Pune</text>
+        </a>
+        <a class="map-pin" href="https://api.whatsapp.com/send?phone=918555882980&amp;text=Hello%2C%20I%20need%20a%20quote%20for%20Kadapa%20to%20Kolkata" target="_blank" rel="noopener noreferrer" aria-label="Get a quote for Kadapa to Kolkata on WhatsApp">
+          <image class="pin-img" href="whatsapp-logo.svg" x="629.6" y="480.6" width="44" height="44"/>
+          <text x="651.6" y="538.6" text-anchor="middle">Kolkata</text>
+        </a>
+        </svg>
+          </div>
+          <p class="map-hint"><svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Tap a WhatsApp icon to get a quote for that route</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1251,7 +1347,7 @@
       <p>Tell us where you're going and we'll take care of the rest.</p>
       <div class="cta-actions">
         <a href="tel:+918555882980" class="btn-primary">Call +91 85558 82980</a>
-        <a href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20want%20to%20know%20more%20info%20about%20your%20services!" target="_blank" rel="noopener noreferrer" class="btn-outline">WhatsApp Us</a>
+        <a href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20want%20to%20know%20more%20info%20about%20your%20services!" target="_blank" rel="noopener noreferrer" class="btn-outline"><svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp Us</a>
       </div>
     </div>
   </section>
@@ -1336,6 +1432,9 @@
     </div>
   </section>
 
+  <!-- ── PHOTO STRIP (above quote) ── -->
+  <div class="ribbon ribbon-quote" aria-hidden="true"><div class="ribbon-track"><img src="gallery_images/svr-office.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-sofas.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-cartons.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-storage-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-loaded-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-sealed-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-fridge-wrapped.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-tarpaulin-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-furniture.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-office.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-sofas.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-cartons.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-storage-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-loaded-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-sealed-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-fridge-wrapped.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-tarpaulin-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-furniture.webp" alt="" width="240" height="150" loading="lazy" /></div></div>
+
   <!-- ── CONTACT ── -->
   <section id="contact">
     <div class="section-head reveal">
@@ -1343,8 +1442,7 @@
       <h2 class="section-title">Request a Quote</h2>
       <p class="section-sub">Fill in your move details and we'll continue the conversation on WhatsApp. Nothing is stored on this site.</p>
     </div>
-    <div class="ribbon ribbon-quote" aria-hidden="true"><div class="ribbon-track"><img src="gallery_images/svr-office.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-sofas.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-cartons.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-storage-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-loaded-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-sealed-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-fridge-wrapped.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-tarpaulin-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-furniture.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-office.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-sofas.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-cartons.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-storage-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-loaded-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-sealed-boxes.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-fridge-wrapped.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-tarpaulin-truck.webp" alt="" width="240" height="150" loading="lazy" /><img src="gallery_images/svr-wrapped-furniture.webp" alt="" width="240" height="150" loading="lazy" /></div></div>
-    <form class="contact-form reveal" id="quoteForm">
+        <form class="contact-form reveal" id="quoteForm">
       <label>Your name
         <input type="text" name="name" required autocomplete="name" />
       </label>
@@ -1374,7 +1472,7 @@
       <label>Details (optional)
         <textarea name="details" placeholder="e.g. 2 BHK, 3rd floor"></textarea>
       </label>
-      <button type="submit" class="btn-primary">Send via WhatsApp</button>
+      <button type="submit" class="btn-primary"><svg class="ico ico-wa" aria-hidden="true"><use href="#i-wa"/></svg>Send via WhatsApp</button>
     </form>
     <div class="map-wrap reveal">
       <iframe title="Map showing SVR Packers &amp; Movers in Y.S. Nagar, Kadapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
@@ -1387,10 +1485,10 @@
   </section>
 
   <!-- Floating contact: WhatsApp (desktop) / call + WhatsApp bar (mobile) -->
-  <a class="wa-float" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20want%20to%20know%20more%20info%20about%20your%20services!" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"><svg class="ico"><use href="#i-chat"/></svg></a>
+  <a class="wa-float" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20want%20to%20know%20more%20info%20about%20your%20services!" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"><img src="whatsapp-logo.svg" alt="" width="64" height="64" /></a>
   <div class="sticky-cta">
     <a class="call" href="tel:+918555882980"><svg class="ico"><use href="#i-phone"/></svg>Call Now</a>
-    <a class="wa" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20want%20to%20know%20more%20info%20about%20your%20services!" target="_blank" rel="noopener noreferrer"><svg class="ico"><use href="#i-chat"/></svg>WhatsApp</a>
+    <a class="wa" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20want%20to%20know%20more%20info%20about%20your%20services!" target="_blank" rel="noopener noreferrer"><svg class="ico ico-wa"><use href="#i-wa"/></svg>WhatsApp</a>
   </div>
 
   <!-- Lightbox -->
