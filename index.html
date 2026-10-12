@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,17 +20,21 @@
   <meta name="twitter:description" content="Professional packing, safe transport, and on-time delivery across Andhra Pradesh and all of India." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0D0D0D" />
-  <link rel="icon" type="image/svg+xml" href="truck.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="image" href="stock_images/tata-truck.webp" type="image/webp" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="preload" as="image" href="stock_images/tata-truck-md.webp" type="image/webp" media="(max-width: 900px)" />
+  <link rel="preload" as="image" href="stock_images/tata-truck.webp" type="image/webp" media="(min-width: 901px)" />
+  <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "MovingCompany",
     "name": "SVR Packers & Movers",
     "url": "https://www.svrpackersandmovers.info/",
+    "logo": "https://www.svrpackersandmovers.info/icon-512.png",
+    "hasMap": "https://www.google.com/maps?q=14.4624871,78.8312649",
     "image": "https://www.svrpackersandmovers.info/og-image.jpg",
     "description": "Packers and movers in Kadapa, Andhra Pradesh — house shifting, office shifting, and car and bike transport across India with an All India Permit.",
     "telephone": "+91-85558-82980",
@@ -66,11 +70,18 @@
   </script>
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
   <style>
+    @font-face {
+      font-family: 'Space Grotesk'; font-style: normal; font-weight: 300 700; font-display: swap;
+      src: url(fonts/space-grotesk-latin.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
     /* ── Reset & Base ──────────────────────────────── */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
       --orange:  #F26522;
       --orange2: #d95515;
+      --orange-ink:  #c0450c;   /* 5.1:1 on white: buttons + small text on light */
+      --orange-ink2: #a63a08;
       --dark:    #0D0D0D;
       --dark2:   #161616;
       --gray:    #6b6b6b;
@@ -117,12 +128,12 @@
     }
     .nav-links a:hover { color: var(--orange); }
     .nav-cta {
-      background: var(--orange); color: #fff;
+      background: var(--orange-ink); color: #fff;
       padding: 10px 22px; border-radius: 100px;
       font-size: .86rem; font-weight: 600;
       transition: background .2s, transform .2s;
     }
-    .nav-cta:hover { background: var(--orange2); transform: translateY(-1px); }
+    .nav-cta:hover { background: var(--orange-ink2); transform: translateY(-1px); }
     /* Hamburger */
     .nav-hamburger {
       display: none; flex-direction: column; gap: 5px;
@@ -150,10 +161,10 @@
     }
     .mobile-menu a:hover { color: var(--orange); }
     .mobile-menu .m-cta {
-      margin-top: 8px; background: var(--orange); color: #fff;
+      margin-top: 8px; background: var(--orange-ink); color: #fff;
       padding: 14px 36px; border-radius: 100px; font-size: 1rem;
     }
-    .mobile-menu .m-cta:hover { background: var(--orange2); }
+    .mobile-menu .m-cta:hover { background: var(--orange-ink2); }
 
     /* ── HERO ──────────────────────────────────────── */
     #hero {
@@ -191,13 +202,13 @@
     }
     .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
     .btn-primary {
-      background: var(--orange); color: #fff;
+      background: var(--orange-ink); color: #fff;
       padding: 15px 32px; border-radius: 100px;
       font-size: .95rem; font-weight: 600;
       transition: background .2s, transform .2s, box-shadow .2s;
     }
     .btn-primary:hover {
-      background: var(--orange2); transform: translateY(-2px);
+      background: var(--orange-ink2); transform: translateY(-2px);
       box-shadow: 0 8px 28px rgba(242,101,34,.4);
     }
     .btn-ghost {
@@ -221,7 +232,7 @@
 
     /* ── MARQUEE ───────────────────────────────────── */
     .marquee-wrap {
-      background: var(--orange); padding: 14px 0; overflow: hidden;
+      background: var(--orange-ink); padding: 14px 0; overflow: hidden;
       border-top: 1px solid rgba(255,255,255,.15);
       border-bottom: 1px solid rgba(255,255,255,.15);
     }
@@ -240,18 +251,15 @@
     section { padding: 100px 5%; }
     .section-label {
       font-size: .76rem; font-weight: 600; letter-spacing: .12em;
-      text-transform: uppercase; color: var(--orange); margin-bottom: 12px;
+      text-transform: uppercase; color: var(--orange-ink); margin-bottom: 12px;
     }
+    #why .section-label, #pack .section-label, #cta-band .section-label, #stats .section-label { color: #ff9d6c; }
     .section-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
     .section-sub { margin-top: 14px; font-size: 1rem; line-height: 1.7; color: var(--gray); max-width: 520px; }
     .section-head { margin-bottom: 56px; }
 
     /* ── GALLERY ───────────────────────────────────── */
     #gallery { background: var(--light); }
-    .gallery-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 260px; gap: 12px;
-    }
     .g-item { position: relative; overflow: hidden; border-radius: 12px; }
     .g-item img { transition: transform .55s var(--ease); }
     .g-item:hover img { transform: scale(1.06); }
@@ -264,57 +272,9 @@
 
     /* ── SERVICES ──────────────────────────────────── */
     #services { background: var(--white); }
-    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .service-card {
-      background: var(--light); border: 1px solid rgba(0,0,0,.06);
-      border-radius: 16px; padding: 36px 32px;
-      transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s;
-      cursor: default;
-    }
-    .service-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 48px rgba(0,0,0,.09);
-      border-color: rgba(242,101,34,.25);
-    }
-    .service-icon {
-      width: 52px; height: 52px; border-radius: 14px;
-      background: rgba(242,101,34,.1);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 22px; transition: background .3s;
-    }
-    .service-card:hover .service-icon { background: rgba(242,101,34,.2); }
-    .service-icon svg { width: 26px; height: 26px; stroke: var(--orange); }
-    .service-card h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
-    .service-card p { font-size: .93rem; line-height: 1.7; color: var(--gray); }
 
     /* ── HOW IT WORKS ─────────────────────────────── */
     #how-it-works { background: var(--light); }
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 0; position: relative;
-    }
-    .steps-grid::before {
-      content: ''; position: absolute; z-index: 0;
-      top: 36px; left: calc(12.5% + 36px); right: calc(12.5% + 36px);
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(242,101,34,.3) 20%, rgba(242,101,34,.3) 80%, transparent);
-    }
-    .step-item {
-      display: flex; flex-direction: column; align-items: center;
-      text-align: center; padding: 0 20px;
-    }
-    .step-num {
-      width: 72px; height: 72px; border-radius: 50%;
-      border: 2px solid rgba(242,101,34,.25);
-      background: var(--white);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 24px; position: relative; z-index: 1;
-      transition: background .3s, border-color .3s;
-    }
-    .step-item:hover .step-num { background: rgba(242,101,34,.1); border-color: var(--orange); }
-    .step-num svg { width: 28px; height: 28px; stroke: var(--orange); }
-    .step-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
-    .step-item p { font-size: .88rem; line-height: 1.7; color: var(--gray); }
 
     /* ── STATS ─────────────────────────────────────── */
     #stats { background: var(--dark2); padding: 80px 5%; }
@@ -348,8 +308,8 @@
       font-size: .88rem; color: var(--dark);
       transition: background .25s, border-color .25s, color .25s;
     }
-    .area-pill:hover { background: rgba(242,101,34,.08); border-color: rgba(242,101,34,.35); color: var(--orange); }
-    .area-pill.home { background: rgba(242,101,34,.1); border-color: rgba(242,101,34,.4); color: var(--orange); font-weight: 600; }
+    .area-pill:hover { background: rgba(242,101,34,.08); border-color: rgba(242,101,34,.35); color: var(--orange-ink); }
+    .area-pill.home { background: rgba(242,101,34,.1); border-color: rgba(242,101,34,.4); color: var(--orange-ink); font-weight: 600; }
     .area-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); flex-shrink: 0; }
     .area-cta-row {
       margin-top: 8px; padding-top: 32px;
@@ -374,7 +334,7 @@
     .testi-author { display: flex; align-items: center; gap: 14px; }
     .testi-avatar {
       width: 42px; height: 42px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--orange), var(--orange2));
+      background: linear-gradient(135deg, var(--orange-ink), var(--orange-ink2));
       display: flex; align-items: center; justify-content: center;
       font-size: .9rem; font-weight: 700; color: #fff; flex-shrink: 0;
     }
@@ -432,7 +392,7 @@
     .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
     .footer-brand .footer-logo { height: 38px; width: auto; margin-bottom: 18px; }
     .footer-brand p { font-size: .9rem; line-height: 1.75; max-width: 280px; }
-    .footer-col h4 {
+    .footer-col h3 {
       font-size: .8rem; font-weight: 600; letter-spacing: .1em;
       text-transform: uppercase; color: rgba(255,255,255,.6); margin-bottom: 18px;
     }
@@ -446,6 +406,8 @@
       padding-top: 28px; border-top: 1px solid rgba(255,255,255,.07);
       font-size: .8rem; gap: 16px; flex-wrap: wrap;
     }
+    .legal-link { color: rgba(255,255,255,.65); padding: 8px 0; display: inline-block; text-decoration: underline; text-underline-offset: 3px; }
+    .legal-link:hover { color: var(--orange); }
     .footer-bottom span { color: rgba(255,255,255,.55); }
 
     /* ── LIGHTBOX ──────────────────────────────────── */
@@ -479,6 +441,16 @@
     .contact-form textarea { resize: none; height: 46px; }
     .contact-form button { border: none; cursor: pointer; font-family: var(--font); height: 46px; padding: 0 20px; }
 
+    .skip-link { position: absolute; left: 12px; top: -60px; z-index: 300; background: var(--dark); color: #fff; padding: 12px 20px; border-radius: 10px; font-weight: 600; transition: top .2s; }
+    .skip-link:focus { top: 12px; }
+    #main:focus { outline: none; }
+
+    .nav-hamburger { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; margin-right: -8px; }
+    .btn-ghost { padding: 12px 6px; }
+    .footer-col li a { display: inline-block; padding: 7px 0; }
+    .footer-col li { align-items: center; }
+    .mobile-menu a { padding: 6px 12px; }
+
     /* ── ICONS ─────────────────────────────────────── */
     .ico { width: 26px; height: 26px; fill: none; stroke: var(--orange); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
     .ico-box {
@@ -498,28 +470,12 @@
     #why { background: var(--dark2); }
     #why .section-title { color: var(--white); }
     #why .section-sub { color: rgba(255,255,255,.6); }
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .why-card {
-      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-      border-radius: 16px; padding: 30px 26px; transition: background .3s, border-color .3s;
-    }
-    .why-card:hover { background: rgba(242,101,34,.08); border-color: rgba(242,101,34,.25); }
-    .why-card h3 { color: var(--white); font-size: 1.05rem; margin-bottom: 8px; }
-    .why-card p { color: rgba(255,255,255,.6); font-size: .9rem; line-height: 1.7; }
 
     /* ── TIPS ──────────────────────────────────────── */
     #tips { background: var(--white); }
-    .tips-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .tip-card { background: var(--light); border: 1px solid rgba(0,0,0,.06); border-radius: 16px; padding: 28px 26px; }
-    .tip-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
-    .tip-card p { font-size: .9rem; line-height: 1.7; color: var(--gray); }
 
     /* ── COST FACTORS ──────────────────────────────── */
     #costs { background: var(--light); }
-    .costs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .cost-card { background: var(--white); border: 1px solid rgba(0,0,0,.06); border-radius: 16px; padding: 26px; }
-    .cost-card h3 { font-size: 1.02rem; margin-bottom: 6px; }
-    .cost-card p { font-size: .88rem; line-height: 1.65; color: var(--gray); }
     .costs-cta { margin-top: 32px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
     .costs-cta p { color: var(--gray); font-size: .95rem; }
 
@@ -530,28 +486,27 @@
     .compare-table th, .compare-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid rgba(0,0,0,.07); }
     .compare-table tr:last-child td { border-bottom: none; }
     .compare-table thead th { font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gray); }
-    .compare-table thead th.us { color: var(--orange); }
+    .compare-table thead th.us { color: var(--orange-ink); }
     .compare-table td.us { background: rgba(242,101,34,.05); }
     .compare-table .yes, .compare-table .no { display: inline-flex; align-items: center; gap: 8px; }
     .compare-table .yes .ico { stroke: #0f7a4d; width: 20px; height: 20px; }
     .compare-table .no .ico { stroke: #a33; width: 20px; height: 20px; }
 
     /* ── ROUTES ────────────────────────────────────── */
-    .routes-title { margin-top: 12px; }
     .route-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
     .route-card {
       display: flex; align-items: center; justify-content: space-between; gap: 10px;
       background: var(--light); border: 1px solid rgba(0,0,0,.08); border-radius: 12px;
       padding: 14px 18px; font-size: .92rem; font-weight: 500; transition: border-color .25s, background .25s, color .25s;
     }
-    .route-card:hover { border-color: rgba(242,101,34,.4); background: rgba(242,101,34,.06); color: var(--orange); }
+    .route-card:hover { border-color: rgba(242,101,34,.4); background: rgba(242,101,34,.06); color: var(--orange-ink); }
     .route-card span:last-child { color: var(--orange); }
 
     /* ── MAP ───────────────────────────────────────── */
     .map-wrap { margin-top: 40px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,.08); }
     .map-wrap iframe { display: block; width: 100%; height: 360px; border: 0; }
     .map-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 14px 20px; background: var(--white); font-size: .9rem; color: var(--gray); }
-    .map-bar a { color: var(--orange); font-weight: 600; }
+    .map-bar a { color: var(--orange-ink); font-weight: 600; }
 
     /* ── FLOATING CONTACT ──────────────────────────── */
     .wa-float {
@@ -574,25 +529,16 @@
 
     /* ── RESPONSIVE ────────────────────────────────── */
     @media (max-width: 900px) {
-      .gallery-grid { grid-template-columns: repeat(2,1fr); }
-      .services-grid { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: repeat(2,1fr); gap: 40px; }
-      .steps-grid::before { display: none; }
       .testi-grid { grid-template-columns: 1fr 1fr; }
       .faq-inner { flex-direction: column-reverse; gap: 40px; }
       .faq-right { position: static; flex: none; width: 100%; max-width: 280px; align-self: center; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (min-width: 1200px) {
-      .services-grid { grid-template-columns: repeat(4, 1fr); }
-      .service-card { padding: 30px 24px; }
-    }
     @media (max-width: 900px) {
       .trust-grid { grid-template-columns: 1fr 1fr; }
-      .why-grid, .tips-grid, .costs-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
-      .trust-grid, .why-grid, .tips-grid, .costs-grid { grid-template-columns: 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
       .wa-float { display: none; }
       body { padding-bottom: 54px; }
       .sticky-cta { display: flex; position: fixed; left: 0; right: 0; bottom: 0; z-index: 90; box-shadow: 0 -4px 18px rgba(0,0,0,.2); }
@@ -609,9 +555,7 @@
       .nav-links { display: none; }
       .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
-      .gallery-grid { grid-template-columns: 1fr; }
       .stats-numbers { grid-template-columns: 1fr 1fr; }
-      .steps-grid { grid-template-columns: 1fr; gap: 32px; }
       .testi-grid { grid-template-columns: 1fr; }
       .faq-right { max-width: 200px; }
       .contact-form { grid-template-columns: 1fr; }
@@ -635,6 +579,10 @@
       0% { opacity: 0; transform: scale(1.04); } 6% { opacity: 1; } 33% { opacity: 1; }
       40% { opacity: 0; transform: scale(1.1); } 100% { opacity: 0; }
     }
+
+    .hs1 { background-image: url('stock_images/tata-truck.webp'); }
+    .hero-loaded .hs2 { background-image: url('stock_images/cargo-truck.webp'); }
+    .hero-loaded .hs3 { background-image: url('stock_images/vizag-sunset.webp'); }
 
     /* Photo ribbon */
     .ribbon { background: var(--white); padding: 0 0 56px; overflow: hidden; }
@@ -678,6 +626,7 @@
       display: grid; grid-template-columns: 44px 1fr 28px; gap: 12px; align-items: start;
       padding: 22px 8px; border-bottom: 1px solid rgba(0,0,0,.12); cursor: pointer;
     }
+    .svc-btn { background: none; border: 0; padding: 0; margin: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; }
     .svc-row .n { font-size: .82rem; font-weight: 600; color: var(--gray); padding-top: 6px; }
     .svc-row h3 { font-size: 1.25rem; font-weight: 700; transition: color .25s; }
     .svc-row p {
@@ -685,7 +634,7 @@
       transition: max-height .4s var(--ease), margin .3s;
     }
     .svc-row .arr { color: var(--orange); font-size: 1.3rem; opacity: 0; transform: translateX(-8px); transition: opacity .25s, transform .25s; }
-    .svc-row:hover h3, .svc-row.active h3 { color: var(--orange); }
+    .svc-row:hover h3, .svc-row.active h3 { color: var(--orange-ink); }
     .svc-row.active p { max-height: 140px; margin-top: 8px; }
     .svc-row.active .arr, .svc-row:hover .arr { opacity: 1; transform: none; }
 
@@ -733,6 +682,7 @@
     .cl-card::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 5px; background: var(--orange); }
     .cl-card:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(0,0,0,.09); }
     .cl-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .step-no::before, .cl-num::before { content: attr(data-n); }
     .cl-num { font-size: 2.8rem; font-weight: 700; line-height: 1; color: rgba(242,101,34,.28); letter-spacing: -.03em; }
     .cl-ico { width: 46px; height: 46px; border-radius: 14px; background: rgba(242,101,34,.12); display: flex; align-items: center; justify-content: center; }
     .cl-card h3 { font-size: 1.2rem; margin-bottom: 16px; }
@@ -811,7 +761,7 @@
       background: var(--light); border: 1px dashed rgba(0,0,0,.28); border-radius: 14px; padding: 16px 16px;
     }
     .route-card .rt-city { font-weight: 700; font-size: .92rem; white-space: nowrap; }
-    .route-card .rt-city:last-child { color: var(--orange); }
+    .route-card .rt-city:last-child { color: var(--orange-ink); }
     .rt-line { position: relative; height: 2px; min-width: 14px; background: repeating-linear-gradient(90deg, var(--orange) 0 6px, transparent 6px 12px); }
     .rt-line::after { content: ''; position: absolute; right: -2px; top: -4px; border-left: 8px solid var(--orange); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
 
@@ -864,6 +814,14 @@
       .ribbon img { width: 180px; height: 112px; }
       .road { height: 60px; }
     }
+    @media (max-width: 900px) {
+      .hs1 { background-image: url('stock_images/tata-truck-md.webp'); }
+      .hero-loaded .hs2 { background-image: url('stock_images/cargo-truck-md.webp'); }
+      .hero-loaded .hs3 { background-image: url('stock_images/vizag-sunset-md.webp'); }
+      #why { background-image: url('stock_images/warehouse-shelves-md.webp'); }
+      #stats { background-image: url('stock_images/warehouse-aisle-md.webp'); }
+      #cta-band { background-image: url('stock_images/vizag-coast-md.webp'); }
+    }
     @media (prefers-reduced-motion: reduce) {
       .hero-slide:first-child { opacity: 1; }
       .road img { display: none; }
@@ -910,7 +868,7 @@
     .pack-list { list-style: none; }
     .pack-list li { display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid rgba(255,255,255,.14); }
     .pack-list li:last-child { border-bottom: 1px solid rgba(255,255,255,.14); }
-    .pk-n { width: 44px; height: 44px; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; }
+    .pk-n { width: 44px; height: 44px; border-radius: 50%; background: var(--orange-ink); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; }
     .pack-list h3 { color: var(--white); font-size: 1.15rem; margin-bottom: 6px; }
     .pack-list p { color: rgba(255,255,255,.66); font-size: .93rem; line-height: 1.7; }
 
@@ -944,6 +902,7 @@
   <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Icon sprite -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -981,7 +940,7 @@
   <!-- ── NAV ── -->
   <nav id="navbar">
     <a href="#" aria-label="SVR Packers & Movers — go to top">
-      <img src="Logo-New-White.avif" alt="SVR Packers & Movers" class="nav-logo" />
+      <img src="Logo-New-White.avif" alt="SVR Packers & Movers" class="nav-logo" width="826" height="372" />
     </a>
     <ul class="nav-links" role="list">
       <li><a href="#gallery">Gallery</a></li>
@@ -1008,12 +967,13 @@
     <a href="tel:+918555882980" class="m-cta">Call Us</a>
   </div>
 
+  <main id="main" tabindex="-1">
   <!-- ── HERO ── -->
   <section id="hero">
     <div class="hero-bg">
-      <div class="hero-slide" style="background-image:url('stock_images/tata-truck.webp')"></div>
-      <div class="hero-slide" style="background-image:url('stock_images/cargo-truck.webp')"></div>
-      <div class="hero-slide" style="background-image:url('stock_images/vizag-sunset.webp')"></div>
+      <div class="hero-slide hs1"></div>
+      <div class="hero-slide hs2"></div>
+      <div class="hero-slide hs3"></div>
     </div>
     <div class="hero-content">
       <h1 class="hero-h1"><span style="display:block">Making Your Move</span><em>Quick &amp; Easy</em></h1>
@@ -1083,7 +1043,7 @@
   <section id="services">
     <div class="svc-split">
       <div class="svc-visual reveal">
-        <img id="svcImg" src="stock_images/family-new-home.webp" alt="Local shifting in Kadapa" width="900" height="494" />
+        <img id="svcImg" src="stock_images/family-new-home-md.webp" srcset="stock_images/family-new-home-md.webp 900w, stock_images/family-new-home.webp 1600w" sizes="(max-width: 900px) 100vw, 45vw" alt="Local shifting in Kadapa" width="900" height="562" />
         <span class="svc-badge" id="svcBadge">Local shifting in Kadapa</span>
       </div>
       <div class="svc-body">
@@ -1093,14 +1053,14 @@
           <p class="section-sub">End-to-end moving solutions handled by experienced professionals who treat your belongings like their own.</p>
         </div>
         <ol class="svc-list reveal">
-          <li class="svc-row active" tabindex="0" role="button" aria-expanded="true" data-img="stock_images/family-new-home.webp" data-badge="Local shifting in Kadapa"><span class="n">01</span><div><h3>Local Shifting</h3><p>Fast, reliable shifting within Kadapa and nearby areas. We handle everything from packing to setup so you can settle in without the stress.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/vijayawada-bridge.webp" data-badge="Long-distance routes"><span class="n">02</span><div><h3>Long Distance Shifting</h3><p>Shifting to another state? We have the experience and the fleet to get your household or office goods delivered safely over long distances.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/tata-truck.webp" data-badge="Pan-India permit"><span class="n">03</span><div><h3>All India Permit</h3><p>We are authorised to move goods pan-India. No matter which corner of the country you're moving to, we've got the clearances to get there.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/boxes-fragile.webp" data-badge="Careful packing"><span class="n">04</span><div><h3>Packing &amp; Unpacking</h3><p>Quality packing materials and skilled hands ensure fragile items, furniture, and electronics reach the destination in perfect condition.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/hyderabad-skyline.webp" data-badge="Office relocation"><span class="n">05</span><div><h3>Office Shifting</h3><p>Desks, files, IT equipment and fixtures moved with minimal downtime, so your team is back to work quickly.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/cargo-truck.webp" data-badge="Vehicle transport"><span class="n">06</span><div><h3>Car &amp; Bike Transport</h3><p>Your vehicle moved securely along with your household goods, so everything arrives at your new home together.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/box-taping.webp" data-badge="Loading &amp; unloading"><span class="n">07</span><div><h3>Loading &amp; Unloading</h3><p>Trained hands to load heavy furniture and appliances carefully, and to unload and place them where you want them.</p></div><span class="arr" aria-hidden="true">→</span></li>
-          <li class="svc-row" tabindex="0" role="button" aria-expanded="false" data-img="stock_images/warehouse-aisle.webp" data-badge="Safe storage"><span class="n">08</span><div><h3>Storage &amp; Warehousing</h3><p>Not ready to move in yet? Ask us about safe short-term storage for your goods between homes.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row active" data-img="stock_images/family-new-home.webp" data-badge="Local shifting in Kadapa"><span class="n" aria-hidden="true">01</span><div><h3><button type="button" class="svc-btn" aria-expanded="true" aria-controls="svc-p-0">Local Shifting</button></h3><p id="svc-p-0">Fast, reliable shifting within Kadapa and nearby areas. We handle everything from packing to setup so you can settle in without the stress.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" data-img="stock_images/vijayawada-bridge.webp" data-badge="Long-distance routes"><span class="n" aria-hidden="true">02</span><div><h3><button type="button" class="svc-btn" aria-expanded="false" aria-controls="svc-p-1">Long Distance Shifting</button></h3><p id="svc-p-1">Shifting to another state? We have the experience and the fleet to get your household or office goods delivered safely over long distances.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" data-img="stock_images/tata-truck.webp" data-badge="Pan-India permit"><span class="n" aria-hidden="true">03</span><div><h3><button type="button" class="svc-btn" aria-expanded="false" aria-controls="svc-p-2">All India Permit</button></h3><p id="svc-p-2">We are authorised to move goods pan-India. No matter which corner of the country you're moving to, we've got the clearances to get there.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" data-img="stock_images/boxes-fragile.webp" data-badge="Careful packing"><span class="n" aria-hidden="true">04</span><div><h3><button type="button" class="svc-btn" aria-expanded="false" aria-controls="svc-p-3">Packing &amp; Unpacking</button></h3><p id="svc-p-3">Quality packing materials and skilled hands ensure fragile items, furniture, and electronics reach the destination in perfect condition.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" data-img="stock_images/hyderabad-skyline.webp" data-badge="Office relocation"><span class="n" aria-hidden="true">05</span><div><h3><button type="button" class="svc-btn" aria-expanded="false" aria-controls="svc-p-4">Office Shifting</button></h3><p id="svc-p-4">Desks, files, IT equipment and fixtures moved with minimal downtime, so your team is back to work quickly.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" data-img="stock_images/cargo-truck.webp" data-badge="Vehicle transport"><span class="n" aria-hidden="true">06</span><div><h3><button type="button" class="svc-btn" aria-expanded="false" aria-controls="svc-p-5">Car &amp; Bike Transport</button></h3><p id="svc-p-5">Your vehicle moved securely along with your household goods, so everything arrives at your new home together.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" data-img="stock_images/box-taping.webp" data-badge="Loading &amp; unloading"><span class="n" aria-hidden="true">07</span><div><h3><button type="button" class="svc-btn" aria-expanded="false" aria-controls="svc-p-6">Loading &amp; Unloading</button></h3><p id="svc-p-6">Trained hands to load heavy furniture and appliances carefully, and to unload and place them where you want them.</p></div><span class="arr" aria-hidden="true">→</span></li>
+          <li class="svc-row" data-img="stock_images/warehouse-aisle.webp" data-badge="Safe storage"><span class="n" aria-hidden="true">08</span><div><h3><button type="button" class="svc-btn" aria-expanded="false" aria-controls="svc-p-7">Storage &amp; Warehousing</button></h3><p id="svc-p-7">Not ready to move in yet? Ask us about safe short-term storage for your goods between homes.</p></div><span class="arr" aria-hidden="true">→</span></li>
         </ol>
       </div>
     </div>
@@ -1157,10 +1117,10 @@
       <p class="section-sub" style="margin-left:auto;margin-right:auto">Four simple steps from your first call to settling into your new place.</p>
     </div>
     <ol class="zz">
-      <li class="zz-item reveal"><div class="zz-media"><img src="gallery_images/svr-office.webp" alt="SVR Packers &amp; Movers office storefront in Kadapa" width="900" height="494" loading="lazy" /></div><div class="zz-card"><span class="step-no">01</span><div class="ico-box"><svg class="ico"><use href="#i-phone"/></svg></div><h3>Book a Quote</h3><p>Call or WhatsApp us with your move details. We give you a transparent, no-surprise estimate.</p></div></li>
-      <li class="zz-item reveal"><div class="zz-media"><img src="gallery_images/svr-wrapped-cartons.webp" alt="Furniture wrapped in cartons and tape" width="900" height="494" loading="lazy" /></div><div class="zz-card"><span class="step-no">02</span><div class="ico-box"><svg class="ico"><use href="#i-box"/></svg></div><h3>We Pack</h3><p>Our team arrives with quality materials and carefully packs every item — from glassware to furniture.</p></div></li>
-      <li class="zz-item reveal"><div class="zz-media"><img src="gallery_images/svr-loaded-truck.webp" alt="Truck loaded with packed household goods" width="900" height="494" loading="lazy" /></div><div class="zz-card"><span class="step-no">03</span><div class="ico-box"><svg class="ico"><use href="#i-route"/></svg></div><h3>We Transport</h3><p>Goods are safely loaded and transported in our fleet — tracked and handled with full care en route.</p></div></li>
-      <li class="zz-item reveal"><div class="zz-media"><img src="gallery_images/svr-fridge-wrapped.webp" alt="Refrigerator wrapped in stretch film and marked for the move" width="900" height="494" loading="lazy" /></div><div class="zz-card"><span class="step-no">04</span><div class="ico-box"><svg class="ico"><use href="#i-check"/></svg></div><h3>Delivered &amp; Done</h3><p>We unload, place items in the right rooms, and make sure you're fully settled before we leave.</p></div></li>
+      <li class="zz-item reveal"><div class="zz-media"><img src="gallery_images/svr-office.webp" alt="SVR Packers &amp; Movers office storefront in Kadapa" width="900" height="494" loading="lazy" /></div><div class="zz-card"><span class="step-no" data-n="01" aria-hidden="true"></span><div class="ico-box"><svg class="ico"><use href="#i-phone"/></svg></div><h3>Book a Quote</h3><p>Call or WhatsApp us with your move details. We give you a transparent, no-surprise estimate.</p></div></li>
+      <li class="zz-item reveal"><div class="zz-media"><img src="gallery_images/svr-wrapped-cartons.webp" alt="Furniture wrapped in cartons and tape" width="900" height="494" loading="lazy" /></div><div class="zz-card"><span class="step-no" data-n="02" aria-hidden="true"></span><div class="ico-box"><svg class="ico"><use href="#i-box"/></svg></div><h3>We Pack</h3><p>Our team arrives with quality materials and carefully packs every item — from glassware to furniture.</p></div></li>
+      <li class="zz-item reveal"><div class="zz-media"><img src="gallery_images/svr-loaded-truck.webp" alt="Truck loaded with packed household goods" width="900" height="494" loading="lazy" /></div><div class="zz-card"><span class="step-no" data-n="03" aria-hidden="true"></span><div class="ico-box"><svg class="ico"><use href="#i-route"/></svg></div><h3>We Transport</h3><p>Goods are safely loaded and transported in our fleet — tracked and handled with full care en route.</p></div></li>
+      <li class="zz-item reveal"><div class="zz-media"><img src="gallery_images/svr-fridge-wrapped.webp" alt="Refrigerator wrapped in stretch film and marked for the move" width="900" height="494" loading="lazy" /></div><div class="zz-card"><span class="step-no" data-n="04" aria-hidden="true"></span><div class="ico-box"><svg class="ico"><use href="#i-check"/></svg></div><h3>Delivered &amp; Done</h3><p>We unload, place items in the right rooms, and make sure you're fully settled before we leave.</p></div></li>
     </ol>
   </section>
 
@@ -1210,7 +1170,7 @@
     </div>
     <div class="cl-grid">
       <article class="cl-card reveal">
-        <div class="cl-top"><span class="cl-num">01</span><span class="cl-ico"><svg class="ico"><use href="#i-calendar"/></svg></span></div>
+        <div class="cl-top"><span class="cl-num" data-n="01" aria-hidden="true"></span><span class="cl-ico"><svg class="ico"><use href="#i-calendar"/></svg></span></div>
         <h3>2 weeks before</h3>
         <ul>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Fix your date (and muhurat, if you follow one) and book your packers</span></li>
@@ -1221,7 +1181,7 @@
         </ul>
       </article>
       <article class="cl-card reveal">
-        <div class="cl-top"><span class="cl-num">02</span><span class="cl-ico"><svg class="ico"><use href="#i-box"/></svg></span></div>
+        <div class="cl-top"><span class="cl-num" data-n="02" aria-hidden="true"></span><span class="cl-ico"><svg class="ico"><use href="#i-box"/></svg></span></div>
         <h3>1 week before</h3>
         <ul>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Start packing items you rarely use</span></li>
@@ -1232,7 +1192,7 @@
         </ul>
       </article>
       <article class="cl-card reveal">
-        <div class="cl-top"><span class="cl-num">03</span><span class="cl-ico"><svg class="ico"><use href="#i-route"/></svg></span></div>
+        <div class="cl-top"><span class="cl-num" data-n="03" aria-hidden="true"></span><span class="cl-ico"><svg class="ico"><use href="#i-route"/></svg></span></div>
         <h3>Shifting day</h3>
         <ul>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Keep cash, jewellery and documents with you</span></li>
@@ -1243,7 +1203,7 @@
         </ul>
       </article>
       <article class="cl-card reveal">
-        <div class="cl-top"><span class="cl-num">04</span><span class="cl-ico"><svg class="ico"><use href="#i-check"/></svg></span></div>
+        <div class="cl-top"><span class="cl-num" data-n="04" aria-hidden="true"></span><span class="cl-ico"><svg class="ico"><use href="#i-check"/></svg></span></div>
         <h3>After the move</h3>
         <ul>
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Check all items against your list</span></li>
@@ -1279,7 +1239,7 @@
         </div>
       </div>
       <div class="cost-photo reveal">
-        <img src="stock_images/box-taping.webp" alt="Hands sealing a cardboard box with packing tape" width="1600" height="1000" loading="lazy" />
+        <img src="stock_images/box-taping-md.webp" srcset="stock_images/box-taping-md.webp 900w, stock_images/box-taping.webp 1600w" sizes="(max-width: 900px) 100vw, 45vw" alt="Hands sealing a cardboard box with packing tape" width="1600" height="1000" loading="lazy" decoding="async" />
         <span class="svc-badge">Every move is different</span>
       </div>
     </div>
@@ -1318,7 +1278,7 @@
       <h2 class="section-title">SVR vs Unorganised Movers</h2>
       <p class="section-sub">What you get when you choose a registered, professional packers and movers company.</p>
     </div>
-    <div class="compare-wrap reveal">
+    <div class="compare-wrap reveal" tabindex="0" role="region" aria-label="Comparison of SVR and unorganised movers">
       <table class="compare-table">
         <thead><tr><th>What matters</th><th class="us">SVR Packers &amp; Movers</th><th>Unorganised movers</th></tr></thead>
         <tbody>
@@ -1462,10 +1422,10 @@
       <p class="section-sub" style="margin-left:auto;margin-right:auto">Whether it is a whole house or a few boxes, we plan the move around you.</p>
     </div>
     <div class="who-grid">
-      <article class="who-card reveal"><img src="stock_images/family-new-home.webp" alt="" width="1600" height="1000" loading="lazy" /><div class="who-txt"><h3>Families</h3><p>Full-house moves with careful packing for furniture, kitchen and fragile items.</p></div></article>
-      <article class="who-card reveal"><img src="stock_images/hyderabad-skyline.webp" alt="" width="1600" height="1000" loading="lazy" /><div class="who-txt"><h3>Working professionals</h3><p>Job transfers to Hyderabad, Bengaluru, Chennai and beyond, planned around your joining date.</p></div></article>
-      <article class="who-card reveal"><img src="stock_images/boxes-fragile.webp" alt="" width="1600" height="1000" loading="lazy" /><div class="who-txt"><h3>Students &amp; bachelors</h3><p>Moving from a hostel or PG to a flat? Tell us what you have and we will suggest the right vehicle.</p></div></article>
-      <article class="who-card reveal"><img src="stock_images/warehouse-aisle.webp" alt="" width="1600" height="1000" loading="lazy" /><div class="who-txt"><h3>Offices &amp; shops</h3><p>Desks, files, racks and stock moved with minimal downtime for your business.</p></div></article>
+      <article class="who-card reveal"><img src="stock_images/family-new-home-md.webp" alt="" width="900" height="562" loading="lazy" decoding="async" /><div class="who-txt"><h3>Families</h3><p>Full-house moves with careful packing for furniture, kitchen and fragile items.</p></div></article>
+      <article class="who-card reveal"><img src="stock_images/hyderabad-skyline-md.webp" alt="" width="900" height="562" loading="lazy" decoding="async" /><div class="who-txt"><h3>Working professionals</h3><p>Job transfers to Hyderabad, Bengaluru, Chennai and beyond, planned around your joining date.</p></div></article>
+      <article class="who-card reveal"><img src="stock_images/boxes-fragile-md.webp" alt="" width="900" height="562" loading="lazy" decoding="async" /><div class="who-txt"><h3>Students &amp; bachelors</h3><p>Moving from a hostel or PG to a flat? Tell us what you have and we will suggest the right vehicle.</p></div></article>
+      <article class="who-card reveal"><img src="stock_images/warehouse-aisle-md.webp" alt="" width="900" height="562" loading="lazy" decoding="async" /><div class="who-txt"><h3>Offices &amp; shops</h3><p>Desks, files, racks and stock moved with minimal downtime for your business.</p></div></article>
     </div>
   </section>
 
@@ -1535,63 +1495,63 @@
         </div>
         <div class="faq-list reveal">
           <div class="faq-item">
-            <button class="faq-q">
+            <button type="button" class="faq-q">
               How do I book SVR Packers &amp; Movers?
               <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
             </button>
             <div class="faq-a">Simply call or WhatsApp us at +91 85558 82980. Tell us your pick-up and drop locations, the volume of goods, and your preferred date — we'll confirm availability and share a quote within the hour.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">
+            <button type="button" class="faq-q">
               Do you provide packing materials?
               <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
             </button>
             <div class="faq-a">Yes. We bring all packing materials — bubble wrap, corrugated sheets, stretch film, and sturdy boxes. Fragile items like glassware, TVs, and electronics get extra-layer protection at no additional charge.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">
+            <button type="button" class="faq-q">
               How long does a local move within Kadapa take?
               <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
             </button>
             <div class="faq-a">A standard 2 BHK local move typically takes 4–8 hours depending on the floor, volume, and distance. We aim to complete most local moves within the same day.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">
+            <button type="button" class="faq-q">
               Can you move goods to any state in India?
               <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
             </button>
             <div class="faq-a">Yes — we hold an All India Permit, which means our fleet is authorised to operate across every state. We regularly move goods to Hyderabad, Bengaluru, Chennai, Mumbai, Delhi, and beyond.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">
+            <button type="button" class="faq-q">
               How far in advance should I book?
               <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
             </button>
             <div class="faq-a">We recommend booking at least 2–3 days in advance for local moves and 5–7 days for long-distance moves. That said, we do our best to accommodate last-minute requests — just give us a call.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">
+            <button type="button" class="faq-q">
               What affects the moving cost?
               <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
             </button>
             <div class="faq-a">The estimate depends on distance, the volume of goods, floor and lift access, the packing materials needed and the type of vehicle. Share your details on WhatsApp and we'll give you a clear estimate.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">
+            <button type="button" class="faq-q">
               Are there items I should not pack?
               <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
             </button>
             <div class="faq-a">For safety, please do not pack perishable food or flammable and hazardous items such as gas cylinders and chemicals. Keep cash, jewellery and important documents with you.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">
+            <button type="button" class="faq-q">
               Can you move offices and vehicles too?
               <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
             </button>
             <div class="faq-a">Yes. Besides household moves, we handle office shifting and car and bike transport. Call or WhatsApp us with the details and we'll confirm.</div>
           </div>
           <div class="faq-item">
-            <button class="faq-q">
+            <button type="button" class="faq-q">
               Can I be present during packing and loading?
               <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
             </button>
@@ -1600,7 +1560,7 @@
         </div>
       </div>
       <div class="faq-right reveal">
-        <img src="truck.svg" alt="SVR Moving Truck" class="faq-truck" />
+        <img src="truck.svg" alt="SVR Moving Truck" class="faq-truck" width="340" height="340" loading="lazy" />
       </div>
     </div>
   </section>
@@ -1657,16 +1617,21 @@
     </div>
   </section>
 
+  </main>
+
   <!-- Floating contact: WhatsApp (desktop) / call + WhatsApp bar (mobile) -->
+  <aside aria-label="Quick contact">
   <a class="wa-float" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20want%20to%20know%20more%20info%20about%20your%20services!" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp"><img src="whatsapp-logo.svg" alt="" width="64" height="64" /></a>
   <div class="sticky-cta">
     <a class="call" href="tel:+918555882980"><svg class="ico"><use href="#i-phone"/></svg>Call Now</a>
     <a class="wa" href="https://api.whatsapp.com/send?phone=918555882980&text=Hello%2C%20I%20want%20to%20know%20more%20info%20about%20your%20services!" target="_blank" rel="noopener noreferrer"><svg class="ico ico-wa"><use href="#i-wa"/></svg>WhatsApp</a>
   </div>
 
+  </aside>
+
   <!-- Lightbox -->
   <dialog class="lightbox" id="lightbox" aria-label="Image viewer">
-    <img id="lightboxImg" src="" alt="" />
+    <img id="lightboxImg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" />
     <div class="lightbox-bar">
       <span id="lightboxCap"></span>
       <button type="button" id="lightboxClose">Close ✕</button>
@@ -1678,12 +1643,12 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="#" aria-label="SVR Packers & Movers — go to top">
-          <img src="Logo-New-White.avif" alt="SVR Packers & Movers" class="footer-logo" />
+          <img src="Logo-New-White.avif" alt="SVR Packers & Movers" class="footer-logo" width="826" height="372" loading="lazy" />
         </a>
         <p>Your trusted partner for safe, on-time, and affordable relocation — locally and across India.</p>
       </div>
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h3>Quick Links</h3>
         <ul>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#services">Services</a></li>
@@ -1694,7 +1659,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact Us</h4>
+        <h3>Contact Us</h3>
         <ul>
           <li>
             <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.86-.86a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
@@ -1717,6 +1682,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 SVR Packers &amp; Movers. All rights reserved.</span>
+      <a href="/privacy" class="legal-link">Privacy Policy</a>
     </div>
   </footer>
 
@@ -1726,6 +1692,9 @@
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
       window.scrollTo(0, 0);
     }
+
+    // Load hero slides 2 and 3 only after the page has finished loading
+    window.addEventListener('load', () => setTimeout(() => document.getElementById('hero').classList.add('hero-loaded'), 800));
 
     // Sticky nav on scroll
     const navbar = document.getElementById('navbar');
@@ -1779,7 +1748,7 @@
       const img = item.querySelector('img');
       item.tabIndex = 0;
       item.setAttribute('role', 'button');
-      item.setAttribute('aria-label', 'View larger: ' + img.alt);
+      item.setAttribute('aria-label', ((item.querySelector('.cap') || {}).textContent || img.alt) + ', view larger');
       const show = () => {
         lbImg.src = img.src; lbImg.alt = img.alt;
         document.getElementById('lightboxCap').textContent = img.alt;
@@ -1799,13 +1768,15 @@
     const svcRows = document.querySelectorAll('.svc-row');
     function activateSvc(row) {
       if (row.classList.contains('active')) return;
-      svcRows.forEach(r => { r.classList.remove('active'); r.setAttribute('aria-expanded', 'false'); });
+      svcRows.forEach(r => { r.classList.remove('active'); r.querySelector('.svc-btn').setAttribute('aria-expanded', 'false'); });
       row.classList.add('active');
-      row.setAttribute('aria-expanded', 'true');
+      row.querySelector('.svc-btn').setAttribute('aria-expanded', 'true');
       svcImg.classList.add('swap');
       setTimeout(() => {
         svcImg.onload = svcImg.onerror = () => svcImg.classList.remove('swap');
-        svcImg.src = row.dataset.img;
+        svcImg.sizes = '(max-width: 900px) 100vw, 45vw';
+        svcImg.srcset = row.dataset.img.replace('.webp', '-md.webp') + ' 900w, ' + row.dataset.img + ' 1600w';
+        svcImg.src = row.dataset.img.replace('.webp', '-md.webp');
         svcImg.alt = row.dataset.badge;
         svcBadge.innerHTML = row.dataset.badge;
       }, 250);
@@ -1813,7 +1784,6 @@
     svcRows.forEach(row => {
       row.addEventListener('click', () => activateSvc(row));
       row.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover)').matches) activateSvc(row); });
-      row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activateSvc(row); } });
     });
 
     // Quote form → WhatsApp

@@ -4,10 +4,12 @@ Static one-page marketing site for SVR Packers & Movers, Kadapa, Andhra Pradesh.
 
 ## Structure
 
-- `index.html` — the whole site (inline CSS and JS)
-- `gallery_images/` — gallery and hero photos
-- `Logo-New-White.avif`, `truck.svg` — branding assets
-- `robots.txt`
+- `index.html` — the whole home page (inline CSS and JS)
+- `privacy.html` — privacy policy (served at `/privacy`); `404.html` — not-found page
+- `gallery_images/` — SVR's own photos; `stock_images/` — stock photos (`-md` = 900px version for phones, `-sm` = photo strip)
+- `fonts/` — self-hosted Space Grotesk (OFL licence)
+- `vercel.json` — security headers (CSP, HSTS, etc.) and cache rules
+- `robots.txt`, `sitemap.xml`, `site.webmanifest`, favicons
 
 ## Run locally
 
@@ -32,3 +34,9 @@ If the domain changes (e.g. a custom domain), update the URL in `index.html` (ca
 
 - `india-map.svg` — India states map from [Simplemaps](https://simplemaps.com/resources/svg-license) (free for commercial use, attribution appreciated), recoloured for the Service Areas section.
 - `whatsapp-logo.svg` and the WhatsApp glyph in the icon sprite are used for the floating button, mobile call bar and WhatsApp buttons.
+
+## Notes
+
+- Buttons and small text on light backgrounds use `--orange-ink` (#c0450c) for WCAG AA contrast; the brighter brand orange is used for graphics and on dark backgrounds.
+- If you replace a photo, give the new file a new name: images are cached for 7 days (`vercel.json`).
+- `privacy.html` is a standard plain-language policy; have it reviewed before relying on it.
