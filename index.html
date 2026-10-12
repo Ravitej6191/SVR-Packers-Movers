@@ -867,6 +867,67 @@
       .hero-slide:first-child { opacity: 1; }
       .road img { display: none; }
     }
+
+    /* What We Move: mosaic tiles */
+    #items { background: var(--light); }
+    .items-grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(190px, auto); gap: 16px; grid-auto-flow: dense; }
+    .it { background: var(--white); border: 1px solid rgba(0,0,0,.07); border-radius: 22px; padding: 26px 24px; display: flex; flex-direction: column; justify-content: flex-end; gap: 6px; transition: transform .3s var(--ease), box-shadow .3s var(--ease); }
+    .it:hover { transform: translateY(-5px); box-shadow: 0 18px 44px rgba(0,0,0,.1); }
+    .it-ico { width: 52px; height: 52px; border-radius: 15px; background: rgba(242,101,34,.12); display: flex; align-items: center; justify-content: center; margin-bottom: auto; }
+    .it .ico { width: 28px; height: 28px; }
+    .it h3 { font-size: 1.12rem; }
+    .it p { font-size: .9rem; line-height: 1.6; color: var(--gray); }
+    .it.tint { background: #fde9dd; border-color: transparent; }
+    .it.tint .it-ico { background: rgba(242,101,34,.2); }
+    .it.tint p { color: #5b4a40; }
+    .it.dark { background: var(--dark); border-color: var(--dark); }
+    .it.dark h3 { color: var(--white); }
+    .it.dark p { color: rgba(255,255,255,.7); }
+    .it.dark .it-ico { background: rgba(242,101,34,.2); }
+    .it-big { grid-column: span 2; grid-row: span 2; padding: 34px 32px; }
+    .it-big .it-ico { width: 64px; height: 64px; }
+    .it-big .ico { width: 34px; height: 34px; }
+    .it-big h3 { font-size: 1.8rem; }
+    .it-big p { font-size: 1.02rem; max-width: 360px; }
+
+    /* How We Pack: layered box illustration */
+    #pack { background: var(--dark2); }
+    .pack-inner { display: grid; grid-template-columns: 5fr 6fr; gap: 72px; align-items: center; max-width: 1180px; margin: 0 auto; }
+    .pack-art svg { width: 100%; max-width: 440px; display: block; margin: 0 auto; filter: drop-shadow(0 24px 48px rgba(0,0,0,.45)); }
+    #pack .section-title { color: var(--white); }
+    #pack .section-sub { color: rgba(255,255,255,.6); }
+    .pack-body .section-head { margin-bottom: 30px; }
+    .pack-list { list-style: none; }
+    .pack-list li { display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding: 22px 0; border-top: 1px solid rgba(255,255,255,.14); }
+    .pack-list li:last-child { border-bottom: 1px solid rgba(255,255,255,.14); }
+    .pk-n { width: 44px; height: 44px; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; }
+    .pack-list h3 { color: var(--white); font-size: 1.15rem; margin-bottom: 6px; }
+    .pack-list p { color: rgba(255,255,255,.66); font-size: .93rem; line-height: 1.7; }
+
+    /* Who We Help: photo cards */
+    #who { background: var(--light); }
+    .who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; max-width: 1240px; margin: 0 auto; }
+    .who-card { position: relative; border-radius: 24px; overflow: hidden; aspect-ratio: 3 / 4; background: var(--dark); }
+    .who-card img { position: absolute; inset: 0; transition: transform .6s var(--ease); }
+    .who-card:hover img { transform: scale(1.07); }
+    .who-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,13,13,.92) 8%, rgba(13,13,13,.15) 62%); }
+    .who-txt { position: absolute; z-index: 1; left: 22px; right: 22px; bottom: 22px; color: #fff; }
+    .who-txt h3 { font-size: 1.3rem; margin-bottom: 8px; }
+    .who-txt p { font-size: .88rem; line-height: 1.6; color: rgba(255,255,255,.8); }
+    .who-card::before { content: ''; position: absolute; z-index: 1; left: 22px; top: 22px; width: 42px; height: 5px; border-radius: 3px; background: var(--orange); }
+
+    @media (max-width: 900px) {
+      .items-grid { grid-template-columns: 1fr 1fr; }
+      .it-big { grid-column: 1 / -1; grid-row: auto; }
+      .pack-inner { grid-template-columns: 1fr; gap: 40px; }
+      .who-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .items-grid { grid-template-columns: 1fr; }
+      .it { min-height: 170px; }
+      .who-grid { grid-template-columns: 1fr; }
+      .who-card { aspect-ratio: 4 / 3; }
+    }
   </style>
 
   <!-- Vercel Web Analytics -->
@@ -876,6 +937,13 @@
 
   <!-- Icon sprite -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-sofa" viewBox="0 0 24 24"><path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2z"/><path d="M5 18v2M19 18v2"/></symbol>
+    <symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 20V6M3 16h18v4M21 16v-4a3 3 0 0 0-3-3h-7v7"/><circle cx="7" cy="12" r="2"/></symbol>
+    <symbol id="i-tv" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></symbol>
+    <symbol id="i-fridge" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 10h14M9 6v2M9 13v3"/></symbol>
+    <symbol id="i-glass" viewBox="0 0 24 24"><path d="M5 3h14l-1.5 7a5.5 5.5 0 0 1-11 0z"/><path d="M12 15.5V21M8 21h8"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 21.5A2.5 2.5 0 0 1 6.5 19H20"/></symbol>
+    <symbol id="i-diya" viewBox="0 0 24 24"><path d="M3 13h18a8 8 0 0 1-8 7h-2a8 8 0 0 1-8-7z"/><path d="M12 3c2 2.5 2 4.5 0 6-2-1.5-2-3.5 0-6z"/></symbol>
     <symbol id="i-wa" viewBox="0 0 16 16"><path d="M11.42 9.49c-.19-.09-1.1-.54-1.27-.61s-.29-.09-.42.1-.48.6-.59.73-.21.14-.4 0a5.13 5.13 0 0 1-1.49-.92 5.25 5.25 0 0 1-1-1.29c-.11-.18 0-.28.08-.38s.18-.21.28-.32a1.39 1.39 0 0 0 .18-.31.38.38 0 0 0 0-.33c0-.09-.42-1-.58-1.37s-.3-.32-.41-.32h-.4a.72.72 0 0 0-.5.23 2.1 2.1 0 0 0-.65 1.55A3.59 3.59 0 0 0 5 8.2 8.32 8.32 0 0 0 8.19 11c.44.19.78.3 1.05.39a2.53 2.53 0 0 0 1.17.07 1.93 1.93 0 0 0 1.26-.88 1.67 1.67 0 0 0 .11-.88c-.05-.07-.17-.12-.36-.21z"/><path d="M13.29 2.68A7.36 7.36 0 0 0 8 .5a7.44 7.44 0 0 0-6.41 11.15l-1 3.85 3.94-1a7.4 7.4 0 0 0 3.55.9H8a7.44 7.44 0 0 0 5.29-12.72zM8 14.12a6.12 6.12 0 0 1-3.15-.87l-.22-.13-2.34.61.62-2.28-.14-.23a6.18 6.18 0 0 1 9.6-7.65 6.12 6.12 0 0 1 1.81 4.37A6.19 6.19 0 0 1 8 14.12z"/></symbol>
     <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
     <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></symbol>
@@ -1031,6 +1099,26 @@
   <!-- ── PHOTO RIBBON ── -->
   <div class="ribbon" aria-hidden="true"><div class="ribbon-track"><img src="stock_images/tata-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/indian-couple-home-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/sacks-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/mountain-road-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/boxes-fragile-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/cargo-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/hyderabad-skyline-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-aisle-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/van-loading-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/indian-couple-sofa-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-shelves-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/man-carrying-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/tata-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/indian-couple-home-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/sacks-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/mountain-road-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/boxes-fragile-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/cargo-truck-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/hyderabad-skyline-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-aisle-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/van-loading-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/indian-couple-sofa-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/warehouse-shelves-sm.webp" alt="" width="240" height="150" loading="lazy" /><img src="stock_images/man-carrying-sm.webp" alt="" width="240" height="150" loading="lazy" /></div></div>
 
+  <!-- ── WHAT WE MOVE ── -->
+  <section id="items">
+    <div class="section-head reveal">
+      <p class="section-label">What We Move</p>
+      <h2 class="section-title">Everything in Your Home,<br />Handled with Care</h2>
+      <p class="section-sub">From the sofa to the pooja shelf, each item gets the protection it needs.</p>
+    </div>
+    <div class="items-grid">
+      <div class="it it-big dark reveal"><span class="it-ico"><svg class="ico"><use href="#i-sofa"/></svg></span><h3>Sofas &amp; furniture</h3><p>Wrapped in stretch film and padded at the corners, so wood and fabric stay free of scratches and dust.</p></div>
+      <div class="it  reveal"><span class="it-ico"><svg class="ico"><use href="#i-bed"/></svg></span><h3>Beds &amp; mattresses</h3><p>Covered and tied to stay clean and dry.</p></div>
+      <div class="it tint reveal"><span class="it-ico"><svg class="ico"><use href="#i-fridge"/></svg></span><h3>Fridge &amp; washing machine</h3><p>Wrapped and secured so doors stay shut on the road.</p></div>
+      <div class="it tint reveal"><span class="it-ico"><svg class="ico"><use href="#i-tv"/></svg></span><h3>TV &amp; electronics</h3><p>Cushioned and boxed with care.</p></div>
+      <div class="it  reveal"><span class="it-ico"><svg class="ico"><use href="#i-glass"/></svg></span><h3>Kitchen &amp; glassware</h3><p>Bubble-wrapped and packed piece by piece.</p></div>
+      <div class="it  reveal"><span class="it-ico"><svg class="ico"><use href="#i-book"/></svg></span><h3>Clothes &amp; books</h3><p>Sturdy cartons, labelled room-wise.</p></div>
+      <div class="it dark reveal"><span class="it-ico"><svg class="ico"><use href="#i-diya"/></svg></span><h3>Pooja items &amp; idols</h3><p>Wrapped gently and packed with respect.</p></div>
+      <div class="it tint reveal"><span class="it-ico"><svg class="ico"><use href="#i-building"/></svg></span><h3>Office files &amp; IT</h3><p>Desks, files and equipment, moved with minimal downtime.</p></div>
+      <div class="it  reveal"><span class="it-ico"><svg class="ico"><use href="#i-car"/></svg></span><h3>Cars &amp; bikes</h3><p>Transported together with your household goods.</p></div>
+    </div>
+  </section>
+
   <!-- ── WHY CHOOSE US ── -->
   <section id="why">
     <div class="why-inner">
@@ -1064,6 +1152,43 @@
       <li class="zz-item reveal"><div class="zz-media"><img src="gallery_images/svr-loaded-truck.webp" alt="Truck loaded with packed household goods" width="900" height="494" loading="lazy" /></div><div class="zz-card"><span class="step-no">03</span><div class="ico-box"><svg class="ico"><use href="#i-route"/></svg></div><h3>We Transport</h3><p>Goods are safely loaded and transported in our fleet — tracked and handled with full care en route.</p></div></li>
       <li class="zz-item reveal"><div class="zz-media"><img src="gallery_images/svr-fridge-wrapped.webp" alt="Refrigerator wrapped in stretch film and marked for the move" width="900" height="494" loading="lazy" /></div><div class="zz-card"><span class="step-no">04</span><div class="ico-box"><svg class="ico"><use href="#i-check"/></svg></div><h3>Delivered &amp; Done</h3><p>We unload, place items in the right rooms, and make sure you're fully settled before we leave.</p></div></li>
     </ol>
+  </section>
+
+  <!-- ── HOW WE PACK ── -->
+  <section id="pack">
+    <div class="pack-inner">
+      <div class="pack-art reveal">
+        <svg viewBox="-16 -16 392 392" role="img" aria-label="Illustration of an item protected by four layers: soft wrap, cushion, sturdy box and seal">
+          <defs><pattern id="bub" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="9" cy="9" r="5.5" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1.5"/></pattern></defs>
+          <rect x="8" y="8" width="344" height="344" rx="36" fill="#262626" stroke="#F26522" stroke-width="2" stroke-dasharray="7 9"/>
+          <rect x="44" y="44" width="272" height="272" rx="28" fill="#3a2a20"/>
+          <rect x="44" y="172" width="272" height="16" fill="rgba(255,255,255,.1)"/>
+          <rect x="82" y="82" width="196" height="196" rx="22" fill="#5b3b29"/>
+          <rect x="82" y="82" width="196" height="196" rx="22" fill="url(#bub)"/>
+          <rect x="120" y="120" width="120" height="120" rx="16" fill="#F26522"/>
+          <g transform="translate(150 150) scale(2.5)" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2z"/><path d="M5 18v2M19 18v2"/></g>
+          <g font-family="Space Grotesk, sans-serif" font-weight="700" font-size="17" text-anchor="middle">
+            <circle cx="120" cy="120" r="15" fill="#fff"/><text x="120" y="126" fill="#F26522">1</text>
+            <circle cx="82" cy="82" r="15" fill="#fff"/><text x="82" y="88" fill="#F26522">2</text>
+            <circle cx="44" cy="44" r="15" fill="#fff"/><text x="44" y="50" fill="#F26522">3</text>
+            <circle cx="8" cy="8" r="15" fill="#F26522"/><text x="8" y="14" fill="#fff">4</text>
+          </g>
+        </svg>
+      </div>
+      <div class="pack-body">
+        <div class="section-head reveal">
+          <p class="section-label">Our Packing Method</p>
+          <h2 class="section-title">Four Layers of Protection</h2>
+          <p class="section-sub">Every item is protected from the inside out before it ever reaches the truck.</p>
+        </div>
+        <ol class="pack-list">
+          <li class="reveal"><span class="pk-n">1</span><div><h3>Soft wrap</h3><p>Furniture and appliances are wrapped in stretch film or cloth so surfaces stay clean and unscratched.</p></div></li>
+          <li class="reveal"><span class="pk-n">2</span><div><h3>Cushion</h3><p>Glass, crockery, frames and electronics get bubble wrap around every piece.</p></div></li>
+          <li class="reveal"><span class="pk-n">3</span><div><h3>Sturdy box</h3><p>Corrugated sheets and strong cartons hold everything firmly, with no loose gaps.</p></div></li>
+          <li class="reveal"><span class="pk-n">4</span><div><h3>Seal &amp; label</h3><p>Boxes are taped shut and labelled by room, so unpacking in your new home is quick.</p></div></li>
+        </ol>
+      </div>
+    </div>
   </section>
 
   <!-- ── MOVING TIPS ── -->
@@ -1316,6 +1441,21 @@
           <p class="map-hint">Tap a city to request a quote for that route</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ── WHO WE HELP ── -->
+  <section id="who">
+    <div class="section-head reveal" style="text-align:center;margin-left:auto;margin-right:auto">
+      <p class="section-label">Who We Help</p>
+      <h2 class="section-title">A Move for Every Stage of Life</h2>
+      <p class="section-sub" style="margin-left:auto;margin-right:auto">Whether it is a whole house or a few boxes, we plan the move around you.</p>
+    </div>
+    <div class="who-grid">
+      <article class="who-card reveal"><img src="stock_images/indian-couple-home.webp" alt="" width="1600" height="1000" loading="lazy" /><div class="who-txt"><h3>Families</h3><p>Full-house moves with careful packing for furniture, kitchen and fragile items.</p></div></article>
+      <article class="who-card reveal"><img src="stock_images/hyderabad-skyline.webp" alt="" width="1600" height="1000" loading="lazy" /><div class="who-txt"><h3>Working professionals</h3><p>Job transfers to Hyderabad, Bengaluru, Chennai and beyond, planned around your joining date.</p></div></article>
+      <article class="who-card reveal"><img src="stock_images/boxes-fragile.webp" alt="" width="1600" height="1000" loading="lazy" /><div class="who-txt"><h3>Students &amp; bachelors</h3><p>Moving from a hostel or PG to a flat? Tell us what you have and we will suggest the right vehicle.</p></div></article>
+      <article class="who-card reveal"><img src="stock_images/warehouse-aisle.webp" alt="" width="1600" height="1000" loading="lazy" /><div class="who-txt"><h3>Offices &amp; shops</h3><p>Desks, files, racks and stock moved with minimal downtime for your business.</p></div></article>
     </div>
   </section>
 
